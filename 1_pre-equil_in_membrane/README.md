@@ -29,10 +29,12 @@ Note: Unfortunately, we cannot stop GPCR-ModSim early. You can look at option 3 
 
 **Option 2. Using an already prepared closely-related GPCR structure as template**
 
-- Check the "Gromacs_templates/Structures" folder enclosed.
+- Check the **Gromacs_templates/Structures** folder enclosed.
 - Align your receptor to the chosen template (i.e. Using PyMOL) and save new coordinates.
 - Insert your new coordinates inside the PDB of the full template system by replacing those of the template receptor.
-- Then remove clashing elements (waters, ions and membrane residues), i.e. in PyMOL: "select clashingHOH, byres resn SOL and name OW within 2 of not resn SOL+CL+NA+POP and not hydro" for waters oxygens within 2 Angstroms of receptor heavy atoms (inspect and remove clashing ones).
+- Then remove clashing elements (waters, ions and membrane residues), i.e. in PyMOL:
+```select clashingHOH, byres resn SOL and name OW within 2 of not resn SOL+CL+NA+POP and not hydro``` 
+for waters oxygens within 2 Angstroms of receptor heavy atoms (inspect and remove clashing ones).
 
 Note: Make sure the template structure is close enough so you don't have to either remove too many waters or lipids or potentially lack a lot!
 
@@ -43,6 +45,6 @@ Note: Make sure the template structure is close enough so you don't have to eith
 
 ```pymemdyn -p rec_aligned.pdb```
 
-This script can be found within the corresponding pymemdyn script folder. You can kill it after a few seconds. You will only need an **hexagon.pdb** file. 
+This script can be found within the corresponding pymemdyn script folder. You can kill it after a few seconds. You will only need an **hexagon.pdb** file.
 
-Note: If you need a new version or some help running it, ask Hugo Gutiérrez de Terán (PI of development team) or yout colleague Jon Kapla who has been able to run it recently with an adaptation using the CHARMM force field (note that we will be using OPLS-AA here).
+Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI of development team), or your colleague Jon Kapla who has been able to run it recently with an adaptation using the CHARMM force field (note that we will be using OPLS-AA here).
