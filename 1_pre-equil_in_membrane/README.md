@@ -19,7 +19,7 @@ The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simu
 
 ## 2. Inserting your receptor in a membrane
 
-**Option 1. Using GPCR-ModSim (You might have to wait for a day to get the output though)**
+**Option 1. Using GPCR-ModSim (Easy but you might have to wait for a day to get the output though)**
 
 - Upload your formated PDB on http://open.gpcr-modsim.org using the "Model a GPCR" section, and choose to run a molecular dynamics simulation. 
 - After typically one day, you will be able to download outputs and get the unaltered **hexagon.pdb** structure of the full system
