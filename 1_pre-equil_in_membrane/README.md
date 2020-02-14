@@ -12,3 +12,8 @@ If any residue is incomplete, use modeller to ass missing atoms with the enclose
 
 The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simulations in spherical boundary conditions (system reduced to a sphere of a given radius, typically 18-30 Angstroms centered on a ligand atom). If any loop is incomplete and might be included in your simulation sphere, reconstruct it with modeller or simply with a morphing process after modelling the full receptor on GPCR-ModSim (http://open.gpcr-modsim.org/).
 
+## **2. Inserting your receptor in a membrane**
+
+### Option 1. Using GPCR-ModSim
+
+Using 
