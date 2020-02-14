@@ -1,0 +1,26 @@
+#include "ffoplsaa_mod.itp"
+#include "protein.itp"
+; Include Position restraint file
+#ifdef POSRES
+#include "posre.itp"
+#endif
+#include "popc.itp"
+#include "tip3p.itp"
+#include "ions.itp"
+[ system ]
+; Name
+Membrane protein
+[ molecules ]
+; Compound  #mols
+protein 1
+;
+;
+;
+;
+;
+;
+; Number of POPC molecules with higher z-coord value:
+POPC 144
+; Total number of SOL molecules:
+SOL         11946
+CL              9
