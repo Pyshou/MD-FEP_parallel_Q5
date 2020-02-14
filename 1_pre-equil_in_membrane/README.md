@@ -33,6 +33,7 @@ Note: Unfortunately, we cannot stop GPCR-ModSim early. You can look at option 3 
 - Align your receptor to the chosen template (i.e. Using PyMOL) and save new coordinates.
 - Insert your new coordinates inside the PDB of the full template system by replacing those of the template receptor.
 - Then remove clashing elements (waters, ions and membrane residues), i.e. in PyMOL:
+
 ```select clashingHOH, byres resn SOL and name OW within 2 of not resn SOL+CL+NA+POP and not hydro``` 
 for waters oxygens within 2 Angstroms of receptor heavy atoms (inspect and remove clashing ones).
 
