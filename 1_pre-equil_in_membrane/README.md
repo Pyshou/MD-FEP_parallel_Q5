@@ -14,6 +14,7 @@ The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simu
 
 ## **2. Inserting your receptor in a membrane**
 
-### Option 1. Using GPCR-ModSim
+### Option 1. 
+Using GPCR-ModSim
 
 Using 
