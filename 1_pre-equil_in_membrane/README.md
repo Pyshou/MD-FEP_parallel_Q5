@@ -1,6 +1,6 @@
 # Equilibration of your favorite GPCR in a pre-equilibrated 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine (POPC) lipid bilayer 
 
-## **1. Cleaning up the receptor structure**
+## **1. Preparing the receptor structure**
 
 Go to https://opm.phar.umich.edu/ and search for your PDB code of interest and download the equivalent **OPM** PDB file (containing membrane delimiters). 
 
