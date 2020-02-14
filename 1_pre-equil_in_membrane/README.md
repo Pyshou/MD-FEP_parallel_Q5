@@ -30,7 +30,8 @@ Note: Unfortunately, we cannot stop GPCR-ModSim early. You can look at option 3 
 
 - Check the "Gromacs_templates/Structures" folder enclosed.
 - Align your receptor to the chosen template (i.e. Using PyMOL) and save new coordinates.
-- Insert your new coordinates inside the PDB of the full template system by replacing those of the template receptor. - - - - Then remove clashing elements (waters, ions and membrane residues), i.e. in PyMOL: "select clashingHOH, byres resn SOL and name OW within 2 of not resn SOL+CL+NA+POP and not hydro" for waters oxygens within 2 Angstroms of receptor heavy atoms (inspect and remove clashing ones).
+- Insert your new coordinates inside the PDB of the full template system by replacing those of the template receptor.
+- Then remove clashing elements (waters, ions and membrane residues), i.e. in PyMOL: "select clashingHOH, byres resn SOL and name OW within 2 of not resn SOL+CL+NA+POP and not hydro" for waters oxygens within 2 Angstroms of receptor heavy atoms (inspect and remove clashing ones).
 
 Note: Make sure the template structure is close enough so you don't have to either remove too many waters or lipids or potentially lack a lot!
 
