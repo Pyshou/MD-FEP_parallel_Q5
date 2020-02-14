@@ -19,7 +19,7 @@ The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simu
 
 ## 2. Inserting your receptor in a membrane
 
-**Option 1. Using GPCR-ModSim (You might have to wait for a day to get the output though)
+**Option 1. Using GPCR-ModSim (You might have to wait for a day to get the output though)**
 
 - Upload your formated PDB on http://open.gpcr-modsim.org using the "Model a GPCR" section, and choose to run a molecular dynamics simulation. 
 - After typically one day, you will be able to download outputs and get the unaltered **hexagon.pdb** structure of the full system
@@ -27,7 +27,7 @@ The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simu
 Note: Unfortunately, we cannot stop GPCR-ModSim early. You can look at option 3 if you want to use the standalone version of PyMemDyn and stop it early to get this file.
 
 
-**Option 2. Using an already prepared closely-related GPCR structure as template
+**Option 2. Using an already prepared closely-related GPCR structure as template**
 
 - Check the "Gromacs_templates/Structures" folder enclosed.
 - Align your receptor to the chosen template (i.e. Using PyMOL) and save new coordinates.
@@ -37,7 +37,7 @@ Note: Unfortunately, we cannot stop GPCR-ModSim early. You can look at option 3 
 Note: Make sure the template structure is close enough so you don't have to either remove too many waters or lipids or potentially lack a lot!
 
 
-**Option 3. Using the standalone version of PyMemDyn (classical)
+**Option 3. Using the standalone version of PyMemDyn (classical)**
 
 - To run pymemdyn, you need an old Gromacs version (4.6.3 works) and python2.7(.6). This verison used to work on the old Triolith supercomputing ressources. To run it, use the following (you can eventually add options according to the manual):
 
