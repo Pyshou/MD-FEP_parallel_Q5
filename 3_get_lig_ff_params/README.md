@@ -1,6 +1,8 @@
 # Get OPLS ligand force field parameters
 
-For each FEP, you will need the force field parameters of both the MD topology's ligand (usually the biggest) and of the one to compare it to. I would advice to run a few relevant retrospective predictions to calibrate your MD/FEP protocol first (i.e. protonation states in the binding site, sphere size, simulation time..) and see if it allows to reproduce experimental binding affinities.
+For each FEP, you will need the force field parameters of both the MD topology's ligand (usually the biggest) and of the one to compare it to. Prepare a force field folder for each compound of an MD/FEP transformation. You can preliminarily build and save a MOL2 file for your ligands using Chimera's Structure Editing Builder Tool ideally starting from a template structure (very convenient). 
+
+PS. I would advice to run a few relevant retrospective predictions to calibrate your MD/FEP protocol first (i.e. protonation states in the binding site, sphere size, simulation time..) and see if it allows to reproduce experimental binding affinities.
 
 
 ## **Option 1. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
