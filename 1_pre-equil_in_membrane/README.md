@@ -1,5 +1,6 @@
 # Pre-equilibration of your favorite GPCR in a POPC lipid bilayer 
 
+Preparation of a new system for MD/FEP caculations might take a few days each time. But your caclulations will all depend on that step and you need to do it properly. Also ask around if an MD/FEP colleague has already prepared your system in a successful project before (this can be advantageous as you woul not have to go through all these steps).
 
 ## **1. Preparing the receptor structure (skip if using option 2 in next section)**
 
