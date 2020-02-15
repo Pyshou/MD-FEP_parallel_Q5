@@ -1,13 +1,13 @@
 # Get OPLS ligand force field parameters
 
-For each FEP, you will need the force field parameters of both the MD topology's ligand (usually the biggest) and of the one to compare it to. Prepare a force field folder for each compound of an MD/FEP transformation. You can preliminarily build and save a MOL2 file for your ligands using Chimera's Structure Editing Builder Tool ideally starting from a template structure (very convenient). 
+For each FEP, you will need the force field parameters of both the MD topology's ligand (usually the biggest) and of the one to compare it to. Prepare a force field folder for each compound of an MD/FEP transformation and do the following. You can preliminarily build and save a MOL2 file for your ligands using Chimera's Structure Editing Builder Tool ideally starting from a template structure (very convenient). Name the ligand residue "LIG" everywhere for compatibility with different scripts later.
 
-PS. I would advice to run a few relevant retrospective predictions to calibrate your MD/FEP protocol first (i.e. protonation states in the binding site, sphere size, simulation time..) and see if it allows to reproduce experimental binding affinities.
+PS. I would advice to run a few relevant retrospective predictions with already tested compounds to calibrate your MD/FEP protocol first (i.e. protonation states in the binding site, sphere size, simulation time..) and see if it allows to reproduce experimental binding affinities.
 
 
-## **Option 1. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
+## **Option 1. Using ffld_server (accessible on CSB)**
 
-```/home/apps/schrodinger2015/utilities/ffld_server -imol2 rec.mol2 -opdb rec.pdb -print_parameters > LIG.ffld```
+```/home/apps/schrodinger2015/utilities/ffld_server -imol2 rec.mol2 -opdb rec.pdb -print_parameters > LIG.ffld``` # Use a rec.mol2 file for the compound to generate force field parameters for
 
 ```module load python/2.7.6```
 
@@ -15,9 +15,17 @@ PS. I would advice to run a few relevant retrospective predictions to calibrate 
 
 ```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
 
-## **Option 2. Using ffld_server (accessible on CSB)**
+- In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
+- Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
 
-Go t
+
+## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
+
+module load Schrodinger/2018-3-nsc1
+
+- Use the following enclosed script:
+$fep/get_ff_parameters.csh rec.mol2
+
 
 ## **Complementary Option. Using improved force field parameters (LigParGen)**
 
