@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-# By Pierre Matricon, 2015
+# By Pierre Matricon, 2020
 
 
 # Sets the environment and parameters
