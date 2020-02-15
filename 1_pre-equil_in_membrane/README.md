@@ -101,7 +101,7 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 
 ```gmx_d make_ndx -f system.pdb -o index.ndx``` # Select the index number of "SOL" and of "Ion" with "|" between i.e. "16|18" in my case. Rename the new group by typing "name 22 Water_and_ions", number 22 being the newly created group in my case.
 
-```q``` (exit)
+```q``` # exit
 
 - Make restraints file with high force constant on protein's heavy atoms in all dimensions:
 
