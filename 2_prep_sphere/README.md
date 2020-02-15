@@ -32,6 +32,6 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```./residue_renumbering.py rec_noH_noclash_sphered.pdb``` # You get an output.pdb file.
 
-- Change the "CD " atom name of all ILE residues into "CD1" (just use a sed)
+- Change the "CD " atom name of all ILE residues into "CD1" (just use a sed englobing isoleucines only..)
 
 - Then identify your C-terminal residue and rename it's "O1" oxygen to "O " and remove the "O2" extra atom of this residue (Q won't complain then and you don't care about CAPs when the termini are located outside your sphere as most of the time)!
