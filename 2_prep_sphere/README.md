@@ -29,3 +29,8 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 - Keep only waters within sphere radius - 0.5 Angstroms of chosen ligand/residue atom chosen as sphere center (radius you choose for simulation sphere, typically between 18 and 30 Angstroms). You can use the enclosed script as follows:
 
 ```./remove_waters_outside_sphere.py rec_noH_noclash.pdb N9 18``` Here, the sphere center is atom N9 of residue 'LIG' and the chosen sphere radius is 18 Angstroms. The output will be rec_noH_noclash_sphered.pdb.
+
+- Renumber residues sequentially using the enclosed script as follows:
+
+```./residue_renumbering.py rec_noH_noclash_sphered.pdb``` # You get an output.pdb file.
+
