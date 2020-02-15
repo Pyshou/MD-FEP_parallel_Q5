@@ -34,3 +34,7 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```./residue_renumbering.py rec_noH_noclash_sphered.pdb``` # You get an output.pdb file.
 
+- You eventually need to do the following renamings from Gromacs to Q:
+
+```sed -i -e 's/CD  ILE/CD1 ILE/g' output.pdb
+sed -i -e 's/O1  SER/O   SER/g' hexagon.pdb```
