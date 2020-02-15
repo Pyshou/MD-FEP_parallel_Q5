@@ -18,6 +18,8 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```remove_hydrogens.py rec_formated.pdb``` # Output is rec_noH.pdb
 
-- Add fromated PDB of aligned ligand between the protein and the first POPC lipid atom, and add "GAP" string-containing lines before and after the ligand coordinate lines
+- Add fromated PDB of aligned ligand (with residue name "LIG") between the protein and the first POPC lipid atom, and add "GAP" string-containing lines before and after the ligand coordinate lines
 
-- Remove clashing waters from it (i.e. with oxygens within 2 Angstroms of ligands' non-hydrogen atoms):
+- Remove clashing waters from it (i.e. with oxygens within 2 Angstroms of ligands' non-hydrogen atoms). You can use the enclosed script as follows:
+
+```./remove_clashes.py LIG -s HOH -t 2.0 rec_noH.pdb``` # Output is rec_noH_noclash.pdb
