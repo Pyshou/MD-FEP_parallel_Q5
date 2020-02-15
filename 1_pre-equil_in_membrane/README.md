@@ -59,6 +59,8 @@ Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI 
 
 **Assigning of protonation states**
 
+PyMemDyn (GPCR-ModSim) only runs a short restrained equilibration, and if you let it run, releases restraints gradually in subsequent steps (which we do not want). It also uses default protonation states of residues and all histidines are protonated in the delta position... . So we will need some manual edits!
+
 - Copy files located in the enclosed Gromacs_templates/Restrained_equil_files folder
 - On CSB:
 ```module load gromacs/2019```
