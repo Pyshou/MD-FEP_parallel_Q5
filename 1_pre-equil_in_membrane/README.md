@@ -57,6 +57,8 @@ Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI 
 
 ## 3. Running restrained equilibration with Gromacs
 
+**Assigning of protonation states
+
 - Copy files located in the enclosed Gromacs_templates/Restrained_equil_files folder
 - On CSB:
 ```module load gromacs/2019```
@@ -65,6 +67,8 @@ Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI 
 
 ``` gmx_d pdb2gmx -f protein.pdb -o protein_gmx.pdb -ignh -his```
 Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You can also add -glu/-asp/-arg/-lys flags i.e. to neutralize a usually charged residue located at the membrane interface, or ASP2.50 for agonist-bound structures)
+
+**Updating topology
 
 - Rename the generated file and restore mother topology
 
@@ -85,12 +89,16 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 - If the note tell you that the charge of the system is not zero, the system will explode in PBC! So remove ions in the PDB or replace their atom and residue names by those of ions of opposite charge. You can also remove hydrogens of a water molecule you identified in a good spot and change the oxygen's atom and residue name to those of the ions you want to replace it by, and then move the new ion lines in the coorresponding ion coordinates part of the PDB. Then update the ion counts in topol.top and run the previous command again.
 - Let's make an index file containing temperature coupling groups needed for equilibration later:
 
+**Preparing simulations
+
 ```gmx_d make_ndx -f system.pdb -o index.ndx``` # Select the index number of "SOL" and of "Ion" with "|" between i.e. "16|18" in my case. Rename the new group by typing "name 22 Water_and_ions", number 22 being the newly created group in my case.
 ```q``` (exit)
 - Make restraints file with high force constant on protein's heavy atoms in all dimensions:
 
 ```gmx_d genrestr -f system.pdb -fc 5000 5000 5000 -n index.ndx -o posre.itp``` # Type '2' (protein heavy atoms)
 - Now run the minimization (can be done on login node in up to few minutes or in parallel as well):
+
+**Running minimization and equilibration in a parallel job
 
 ```gmx_d mdrun -s minmize.tpr -deffnm minmize```
 - Prepare equilibration (Note: Check the eq.mdp file if you want to change settings or simulation time):
@@ -100,6 +108,8 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 
 ```gmx_mpi mdrun -s eq.tpr -deffnm eq``` # Syntax on Beskow. PS. Load the coorresponding gromacs module on login node + inside the script as well, i.e. module load gromacs/2019.3 on Beskow.
 - When done, center last frame of trajectory and have a look:
+
+**Checking last MD snapshot (input for next steps)
 
 ```gmx_d trjconv -f eq.gro -s eq.tpr -pbc mol -center -n index.ndx -o eq_centered.pdb``` # Select group for centering and then for output (i.e. '3' for Calpha, and '0'=everything for output).
 - Rename residues to have things clean displayed correctly in PyMOL (Particularly POPC lipids):
