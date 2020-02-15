@@ -34,12 +34,6 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```./residue_renumbering.py rec_noH_noclash_sphered.pdb``` # You get an output.pdb file.
 
-- You eventually need to do the following renamings from Gromacs to Q:
+- Change the "CD1" atom name of all ILE residues into "CD "
 
-```sed -i -e 's/CD \ ILE/CD1 ILE/g' output.pdb```
-
-- Then identify your C-terminal residue and rename it's "O1" oxygen to "O " (here, I had a Serine):
-
-```sed -i -e 's/O1  SER/O   SER/g' hexagon.pdb```
-
-- Also remove the "O2" extra atom of this residue!
+- Then identify your C-terminal residue and rename it's "O1" oxygen to "O " and remove the "O2" extra atom of this residue!
