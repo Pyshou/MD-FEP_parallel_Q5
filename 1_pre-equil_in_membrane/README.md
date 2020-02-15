@@ -92,6 +92,7 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 - If the note tell you that the charge of the system is not zero, the system will explode in PBC! So remove ions in the PDB or replace their atom and residue names by those of ions of opposite charge. You can also remove hydrogens of a water molecule you identified in a good spot and change the oxygen's atom and residue name to those of the ions you want to replace it by, and then move the new ion lines in the coorresponding ion coordinates part of the PDB. Then update the ion counts in topol.top and run the previous command again.
 - Let's make an index file containing temperature coupling groups needed for equilibration later:
 
+
 **Preparing simulations**
 
 ```gmx_d make_ndx -f system.pdb -o index.ndx``` # Select the index number of "SOL" and of "Ion" with "|" between i.e. "16|18" in my case. Rename the new group by typing "name 22 Water_and_ions", number 22 being the newly created group in my case.
@@ -99,11 +100,17 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 - Make restraints file with high force constant on protein's heavy atoms in all dimensions:
 
 ```gmx_d genrestr -f system.pdb -fc 5000 5000 5000 -n index.ndx -o posre.itp``` # Type '2' (protein heavy atoms)
-- Now run the minimization (can be done on login node in up to few minutes or in parallel as well):
+
+- Now re-prepare the minimization with included restraints as we don't want the protein to move yet!
+```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -r system.pdb -o minmize.tpr```
+
 
 **Running minimization and equilibration in a parallel job**
 
+- Run the minimization (can be done on login node in up to few minutes or in parallel as well):
+
 ```gmx_d mdrun -s minmize.tpr -deffnm minmize```
+
 - Prepare equilibration (Note: Check the eq.mdp file if you want to change settings or simulation time):
 
 ```gmx_d grompp -f eq.mdp -p topol.top -c minmize.gro -r minmize.gro -o eq.tpr -n index.ndx -maxwarn 1```
@@ -111,6 +118,7 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 
 ```gmx_mpi mdrun -s eq.tpr -deffnm eq``` # Syntax on Beskow. PS. Load the coorresponding gromacs module on login node + inside the script as well, i.e. module load gromacs/2019.3 on Beskow.
 - When done, center last frame of trajectory and have a look:
+
 
 **Checking last MD snapshot (input for next steps)**
 
