@@ -53,7 +53,7 @@ Note: Make sure the template structure is close enough so you don't have to eith
 
 This script can be found within the corresponding pymemdyn script folder. You can kill it after a few seconds. You will only need an **hexagon.pdb** file.
 
-Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI of development team), or your colleague Jon Kapla who has been able to run it recently with an adaptation using the CHARMM force field (note that we will be using OPLS-AA here).
+Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI of development team), or your colleague Jon Kapla who has been able to run it recently with an adaptation using the CHARMM force field (note that we will be using OPLS-AA here while a CHARMM PDB would have unmatched atom and residue names as well as all atom instead of united atom lipids..).
 
 
 ## 3. Running restrained equilibration with Gromacs
