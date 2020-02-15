@@ -86,17 +86,23 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 - Now adjust the number of POPC lipids, solvent molecules and ions in the end of topol.top . For counting residues, you can for instance use the following for POPC lipids (same applies for "SOL" molecules, dividing by 3 and not 52 while for ions, the counting is straighforward):
 
 ```nbPOPatm=$(grep POP system.pdb | wc -l); echo $nbPOPatm"/52"|bc``` # 52 atoms per Berger united atom POPC lipid
-- Make a test compiling information for minimization
-
-```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -o minmize.tpr```
-- If the note tell you that the charge of the system is not zero, the system will explode in PBC! So remove ions in the PDB or replace their atom and residue names by those of ions of opposite charge. You can also remove hydrogens of a water molecule you identified in a good spot and change the oxygen's atom and residue name to those of the ions you want to replace it by, and then move the new ion lines in the coorresponding ion coordinates part of the PDB. Then update the ion counts in topol.top and run the previous command again.
-- Let's make an index file containing temperature coupling groups needed for equilibration later:
 
 
 **Preparing simulations**
 
+
+- Make a test compiling information for minimization
+
+```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -o minmize.tpr```
+
+- If the notes tell you that the charge of the system is not zero, the system will explode in PBC! So remove ions in the PDB or replace their atom and residue names by those of ions of opposite charge. You can also remove hydrogens of a water molecule you identified in a good spot and change the oxygen's atom and residue name to those of the ions you want to replace it by, and then move the new ion lines in the coorresponding ion coordinates part of the PDB. Then update the ion counts in topol.top and run the previous command again.
+
+- Let's make an index file containing temperature coupling groups needed for equilibration later:
+
 ```gmx_d make_ndx -f system.pdb -o index.ndx``` # Select the index number of "SOL" and of "Ion" with "|" between i.e. "16|18" in my case. Rename the new group by typing "name 22 Water_and_ions", number 22 being the newly created group in my case.
+
 ```q``` (exit)
+
 - Make restraints file with high force constant on protein's heavy atoms in all dimensions:
 
 ```gmx_d genrestr -f system.pdb -fc 5000 5000 5000 -n index.ndx -o posre.itp``` # Type '2' (protein heavy atoms)
