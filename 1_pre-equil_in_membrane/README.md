@@ -77,10 +77,11 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 - At the end of the file, remove everything from "; Include Position restraint file" / after the improper section (same thing)
 - Now replace the protein coordinates in the full system PDB file (i.e. hexagon.pdb) by those of the previously generated protein_gmx.pdb file
 - Now adjust the number of POPC lipids, Solvent molecules and ions in the end of topol.top . You can for instance use:
-```nbPOPatm=$(grep POP system.pdb | wc -l); echo $nbPOPatm"/52"|bc``` # 52 atoms per Berger (united atom) POPC lipid
+
+```nbPOPatm=$(grep POP system.pdb | wc -l); echo $nbPOPatm"/52"|bc``` (52 atoms per Berger united atom POPC lipid)
 - Make a test compiling information for minimization
 ```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -o minmize.tpr```
-- If the note tell you that the charge of the system is not zero, remove ions in the PDB or replace them by ions of opposite charge (also update the count in the end of topol.top). You can also remove hydrogens of a water molecule you identified in a good spot and change the atom and residue names to those of the ions you want to replace it by, and then place the new ion lines in the coorresponding ion coordinates part of the PDB. Then update topol.top and run the previous command again. Check that the charge is neutral after using grompp or the system will explode (using PBC)!
+- If the note tell you that the charge of the system is not zero, remove ions in the PDB or replace them by ions of opposite charge (also update the count in the end of topol.top). You can also remove hydrogens of a water molecule you identified in a good spot and change the oxygen's atom and residue name to those of the ions you want to replace it by, and then move the new ion lines in the coorresponding ion coordinates part of the PDB. Then update topol.top and run the previous command again. Check that the charge is neutral after using grompp or the system will explode (using PBC)!
 - Let's make an index file containing temperature coupling groups needed for equilibration later:
 ```gmx_d make_ndx -f system.pdb -o index.ndx``` Select the index number of "SOL" and of "Ion" with "|" between i.e. "16|18" in my case. Rename the new group by typing "name 22 Water_and_ions", number 22 being the newly created group in my case.
 ```q``` (exit)
