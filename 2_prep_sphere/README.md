@@ -2,6 +2,8 @@
 
 Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer as input (see section 1). All this could be further automated but I like paying attention to each of these steps and they don't take long when you are used to that (also very important as your MD/FEP calculations will inherit from your system preparation).
 
+**Cleanup and format structure for Q**
+
 - Remove header, chain ID and b-factor stuff (last columns), plus convert TER into GAP flags. You can read the enclosed script as follows:
 
 ```./remove_unneccesary_stuff.py eq_clean.pdb``` # output is rec_formated.pdb
@@ -28,10 +30,19 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```./remove_waters_outside_sphere.py rec_noH_noclash.pdb N9 18``` Here, the sphere center is atom N9 of residue 'LIG' and the chosen sphere radius is 18 Angstroms. The output will be rec_noH_noclash_sphered.pdb.
 
-- Renumber residues sequentially using the enclosed script as follows:
+- Renumber residues sequentially using the enclosed script as follows (will be needed to assign protonation states and prepare Q topologies the way Q sees the structure):
 
 ```./residue_renumbering.py rec_noH_noclash_sphered.pdb``` # You get an output.pdb file.
 
 - Change the "CD " atom name of all ILE residues into "CD1" (just use a sed englobing isoleucines only..)
 
 - Then identify your C-terminal residue and rename it's "O1" oxygen to "O " and remove the "O2" extra atom of this residue (Q won't complain then and you don't care about CAPs when the termini are located outside your sphere as most of the time)!
+
+
+**Assign protonation states**
+
+- Now, note residue numbers for cysteines involved in disulfide bridges as well as delta- (HID), epsilon- (HIE) and doubly-protonated (HIP) histidines.
+
+In Q, you will define an inner sphere treated normally while solute atoms the outer sphere will be tightly restrained to their initial coordinates, residues in this outer sphere will all need to be neutral as a shild since nothing will be included for non-bonded interactions outside (PS. and some restraints will also be applied on solvent molecules in this region according to the SCAAS model)!
+
+- For receptor-ligand complexes, the outer sphere will typically be everything between the sphere radius minus 3 Angstroms and the sphere radius to the sphere center (chosen central ligand atom for all simulations). All glutamate, aspartate, lysines and arginines in your PDB will have to be renamed into "GLH", "ASH", "LYN" and "ARGN" so write down associated residue numbers (use PyMOL, making a selection for the sphere, one for the innter sphere and the outer one will be all in the sphere that do no belong to the inner region!)
