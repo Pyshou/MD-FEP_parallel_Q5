@@ -1,4 +1,4 @@
-# Equilibration of your favorite GPCR in a pre-equilibrated 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine (POPC) lipid bilayer 
+# Pre-equilibration of your favorite GPCR in a POPC lipid bilayer 
 
 
 ## **1. Preparing the receptor structure (skip if using option 2 in next section)**
