@@ -20,19 +20,19 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```mkdir Forcefield```
 
-```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/popc_hugo.lib Forcefield/```
+```cp oplsaam2015/popc_hugo.lib Forcefield/```
 
-```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
+```cp oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
 
-```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa_withpopc.prm Forcefield/Qoplsaa.prm```
+```cp oplsaam2015/qoplsaa_withpopc.prm Forcefield/Qoplsaa.prm```
 
 ```mv LIG.lib Forcefield/```
 
-```mv Qoplsaa_2.prm Forcefield/Qoplsaa.prm```
-
-```rm LIG.prm```
-
 ```./jorgensen_to_Q.py Qoplsaa.prm LIG.prm``` # Merge with the new protein force field
+
+```mv Qoplsaa_2.prm Forcefield/Qoplsaa.prm``` # Replace old by merged force field
+
+```rm LIG.prm``` # Optional, not needed anymore
 
 ## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
@@ -50,11 +50,11 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```mkdir Forcefield``` # Will merge with the oplsaam2015 protein force field (can put those line in a script om du vill..)
 
-```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/popc_hugo.lib Forcefield/```
+```cp oplsaam2015/popc_hugo.lib Forcefield/```
 
-```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
+```cp oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
 
-```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa_withpopc.prm Forcefield/Qoplsaa.prm```
+```cp oplsaam2015/qoplsaa_withpopc.prm Forcefield/Qoplsaa.prm```
 
 ```mv LIG.lib Forcefield/```
 
