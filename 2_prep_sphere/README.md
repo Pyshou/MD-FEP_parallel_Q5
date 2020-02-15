@@ -41,8 +41,27 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 **Assign protonation states**
 
-- Now, note residue numbers for cysteines involved in disulfide bridges as well as delta- (HID), epsilon- (HIE) and doubly-protonated (HIP) histidines.
+- Now, note residue numbers for cysteines involved in disulfide bridges (will be named "CYX") as well as delta- (HID), epsilon- (HIE) and doubly-protonated (HIP) histidines.
 
-In Q, you will define an inner sphere treated normally while solute atoms the outer sphere will be tightly restrained to their initial coordinates, residues in this outer sphere will all need to be neutral as a shild since nothing will be included for non-bonded interactions outside (PS. and some restraints will also be applied on solvent molecules in this region according to the SCAAS model)!
+In Q, you will define an inner sphere treated normally while solute atoms in the outer sphere will be tightly restrained to their initial coordinates, residues in this outer sphere will all need to be neutral as this region is used as a schild since nothing will be included for non-bonded interactions outside (and some restraints will also be applied on solvent molecules in this region according to the SCAAS model)!
 
-- For receptor-ligand complexes, the outer sphere will typically be everything between the sphere radius minus 3 Angstroms and the sphere radius to the sphere center (chosen central ligand atom for all simulations). All glutamate, aspartate, lysines and arginines in your PDB will have to be renamed into "GLH", "ASH", "LYN" and "ARGN" so write down associated residue numbers (use PyMOL, making a selection for the sphere, one for the innter sphere and the outer one will be all in the sphere that do no belong to the inner region!)
+- No worries, Q will take care of this but read and do the following! For receptor-ligand complexes, the outer sphere will typically be everything between the sphere radius minus 3 Angstroms and the sphere radius to the sphere center (chosen central ligand atom for all simulations). All glutamate, aspartate, lysines and arginines in your PDB will have to be renamed into "GLH", "ASH", "LYN" and "ARGN" so write down associated residue numbers (use PyMOL, making a selection for the sphere, one for the innter sphere and then, the outer one will be all in the sphere that do no belong to the inner region! Then look at the sequence for ARG,LYS,GLU and ASP there and check if there are side chain atoms in the outer sphere!)
+
+- Then you can prepare a file you can name "ionize" with the following format. It will be used as input for formatting the PDB:
+
+```
+50 ASH
+159 GLH
+73 HID
+236 HIE
+249 HID
+263 HID
+CYX 75
+CYX 164
+CYX 245
+CYX 248
+```
+
+- Run this:
+
+```./prep_structureQ.pl rec0.pdb ionize``` # rec0.pdb should be your output.pdb from before.. . Now you get a formatted rec.pdb file that will be used to make receptor-ligand topologies later!
