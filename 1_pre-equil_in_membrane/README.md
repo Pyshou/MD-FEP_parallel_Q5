@@ -108,6 +108,7 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 ```gmx_d genrestr -f system.pdb -fc 5000 5000 5000 -n index.ndx -o posre.itp``` # Type '2' (protein heavy atoms)
 
 - Now re-prepare the minimization with included restraints as we don't want the protein to move yet!
+
 ```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -r system.pdb -o minmize.tpr```
 
 
