@@ -13,7 +13,7 @@ In **PyMOL**,
 - Check that all occupancies are 1.00 for each residue or you will need to choose a romater among the solutions found in the PDB structure (remove atoms of the undesired solution then..).
 - Align your PDB of interest to its OPM equivalent and save it! 
 
-If any residue is incomplete, use modeller to ass missing atoms with the enclosed script (PS. You can get modeller here: https://salilab.org/modeller/download_installation.html). Syntax is as follows:
+- If any residue is incomplete, use modeller to ass missing atoms with the enclosed script (PS. You can get modeller here: https://salilab.org/modeller/download_installation.html). Syntax is as follows:
 
 ```modX.XX add_missing_atoms_modeller.py YOUR_SAVED_STRUCTURE.pdb``` # X.XX according to your modeller version.
 
