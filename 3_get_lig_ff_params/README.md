@@ -16,3 +16,7 @@ Go t
 Go to http://zarbi.chem.yale.edu/ligpargen/index.html . For Q (as other MD engines), this can generate a ligand force field library file as well as paramterers to insert in your "Qopplsaa.prm" force field file. But do not use it until they have fix the problem of wrongly multiplied force constants for bonded parameters for Q. 
 
 What you can eventually do though is to use better quality partial charges by translating the information from the generated "LIG.lib" file (especially if you will carry out transformations of heterocycles, atypical chemical moieties or do scaffold hopping/optimization in general).
+
+```./prep_mapping_files_ligpargen2Q.py rec.pdb LIG.pdb 0.2```
+
+```./ligpargen2Q_charges.py LIG.lib LIG_prgn.lib N9```
