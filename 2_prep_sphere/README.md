@@ -34,6 +34,6 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```./residue_renumbering.py rec_noH_noclash_sphered.pdb``` # You get an output.pdb file.
 
-- Change the "CD1" atom name of all ILE residues into "CD "
+- Change the "CD " atom name of all ILE residues into "CD1"
 
 - Then identify your C-terminal residue and rename it's "O1" oxygen to "O " and remove the "O2" extra atom of this residue!
