@@ -117,3 +117,5 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 - Rename residues to have things clean displayed correctly in PyMOL (Particularly POPC lipids):
 
 ```gmx editconf -f eq_centered.pdb -resnr 1 -o eq_clean.pdb```
+
+- Check in PyMOl that your receptor is well solvated and that the membrane seems well packed around the receptor structure and is correctly equilibrated.
