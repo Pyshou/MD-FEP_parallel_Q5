@@ -61,7 +61,7 @@ Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI 
 - On CSB:
 ```module load gromacs/2019```
 - Copy the full system (i.e. the "hexagon.pdb" file) into a "protein.pdb" file where you only keep protein coordinates.
-- Run PDB2GMX to extract protein force field parameters:
+- Run PDB2GMX to extract protein force field parameters and also generate a formated PDB for the protein:
 
 ``` gmx_d pdb2gmx -f protein.pdb -o protein_gmx.pdb -ignh -his```
 Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You can also add -glu/-asp/-arg/-lys flags i.e. to neutralize a usually charged residue located at the membrane interface, or ASP2.50 for agonist-bound structures)
