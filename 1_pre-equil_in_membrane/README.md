@@ -62,18 +62,16 @@ Note: If you need a new version, ask Hugo Gutiérrez de Terán (PI of developmen
 
 PyMemDyn (GPCR-ModSim) only runs a short restrained equilibration, and if you let it run, releases restraints gradually in subsequent steps (which we do not want). It also uses default protonation states of residues and all histidines are protonated in the delta position... . Also, it is likely using the old OPLSAA2005 force field (we will be using OPLSAAM2015). So we will need some manual edits!
 
-- Copy files located in the enclosed Gromacs_templates/Restrained_equil_files folder
-- Also copy the oplsaam.ff/ folder here.
+- Copy the content of the Gromacs_templates/Restrained_equil_files folder (including the oplsaam.ff/ folder!)
 - On CSB:
 ```module load gromacs/2019```
 - Copy the full system (i.e. the "hexagon.pdb" file from previous section) into a "protein.pdb" file where you only keep protein coordinates (delete all from POPC lines).
-- Copy the oplsaam.ff folder here so PDB2GMX will find the improved OPLSAAM20015 force field
 - Run PDB2GMX to extract protein force field parameters and also generate a formated PDB for the protein:
 
 ``` gmx_d pdb2gmx -f protein.pdb -o protein_gmx.pdb -ignh -his```
 Choose OPLS-AA/M (2015, first option when oplsaam.ff/ folder detected here), TIP3P waters and assign histidine protonation states (PS. You can also add -glu/-asp/-arg/-lys flags i.e. to neutralize a usually charged residue located at the membrane interface, or ASP2.50 for agonist-bound structures)
 
-- Now replace the protein coordinates in the full system PDB file (i.e. hexagon.pdb) by those of the previously generated protein_gmx.pdb file (You can for instance copy protein_gmx.pdb into a system.pdb file, replace the header by the one of hexagon.pdb which contains information about the simulation box, remove the last two TER/ENDMDL lines, then you can grep POP hexagon.pdb >> system.pdb, grep SOL hexagon.pdb >> system.pdb, grep CL hexagon.pdb >> system.pdb and echo "TER" >> system.pdb, echo "ENDMDL" >> system.pdb).
+- Now replace the protein coordinates in the full system PDB file (i.e. hexagon.pdb) by those of the previously generated protein_gmx.pdb file (You can for instance copy protein_gmx.pdb into a system.pdb file, replace the header by the one of hexagon.pdb which contains information about the simulation box, remove the last two TER/ENDMDL lines, then you can for example grep POP hexagon.pdb >> system.pdb, grep SOL hexagon.pdb >> system.pdb, grep CL hexagon.pdb >> system.pdb and echo "TER" >> system.pdb, echo "ENDMDL" >> system.pdb).
 
 **Updating topology**
 
