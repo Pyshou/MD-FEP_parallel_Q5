@@ -8,9 +8,7 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 - Remove all counter-ions in the output PDB manually
 
-- Rename water oxygens lines using:
-
-```sed -i -e 's/OW  SOL/O   HOH/g' rec_formated.pdb```
+- Rename water oxygen atoms "OW" into "O " (a sed will do that):
 
 - Introduce a "GAP" tag line if your protein is truncated somewhere (i.e. missing intracellular loop...)
 
