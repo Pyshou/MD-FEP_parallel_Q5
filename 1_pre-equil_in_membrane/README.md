@@ -119,4 +119,4 @@ Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You ca
 
 ```gmx editconf -f eq_centered.pdb -resnr 1 -o eq_clean.pdb```
 
-- Check in PyMOl that your receptor is well solvated and that the membrane seems well packed around the receptor structure and is correctly equilibrated.
+- Check in PyMOl that your receptor is well solvated and that the membrane seems well packed around the receptor structure and is correctly equilibrated. Also, since the protein was restrained from the start, the binding site should be at least close to identical to the crystal structure (it will be relaxed afterwards in MD/FEP simulations).
