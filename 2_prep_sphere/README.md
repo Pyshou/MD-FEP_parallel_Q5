@@ -1,6 +1,6 @@
 # Preparation of a spherical system for MD/FEP simulations in Q
 
-Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer as input (see section 1).
+Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer as input (see section 1). All this could be scripted but I like paying attention to each of these steps (very important as your MD/FEP calculations will inherit from this preparation).
 
 - Remove header, chain ID and b-factor stuff (last columns), plus convert TER into GAP flags. You can read the enclosed script as follows:
 
