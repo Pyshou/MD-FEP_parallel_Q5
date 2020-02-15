@@ -18,6 +18,21 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 - In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
 - Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
 
+```mkdir Forcefield```
+
+```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/popc_hugo.lib Forcefield/```
+
+```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
+
+```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa_withpopc.prm Forcefield/Qoplsaa.prm```
+
+```mv LIG.lib Forcefield/```
+
+```mv Qoplsaa_2.prm Forcefield/Qoplsaa.prm```
+
+```rm LIG.prm```
+
+```./jorgensen_to_Q.py Qoplsaa.prm LIG.prm``` # Merge with the new protein force field
 
 ## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
