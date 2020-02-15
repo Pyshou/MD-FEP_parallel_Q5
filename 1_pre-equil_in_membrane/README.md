@@ -1,6 +1,6 @@
 # Pre-equilibration of your favorite GPCR in a POPC lipid bilayer 
 
-Preparation of a new system for MD/FEP caculations might take a few days each time. But your caclulations will all depend on that step and you need to do it properly. Also ask around if an MD/FEP colleague has already prepared your system with the same starting PDB structure / functional state in a successful project before (it can be advantageous and you could then skip this). You can skip this step if you're dealing with a soluble protein.
+Preparation of a new system for MD/FEP caculations might take a few days each time. But your caclulations will all depend on that step and you need to do it properly. Choose a well-resolved starting crystal structure with the relevant functional state and ideally a co-crystallized ligand that is similar to the ones you are going to simulate. Also ask around if an MD/FEP colleague has already prepared your system with the same starting PDB structure / functional state in a successful project before (it can be advantageous and you could then skip this). You can skip this step if you're dealing with a soluble protein.
 
 ## **1. Preparing the receptor structure (skip if using option 2 in next section)**
 
