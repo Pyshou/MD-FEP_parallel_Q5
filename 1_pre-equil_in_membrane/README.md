@@ -14,6 +14,7 @@ In **PyMOL**,
 - Align your PDB of interest to its OPM equivalent and save it! 
 
 If any residue is incomplete, use modeller to ass missing atoms with the enclosed script (PS. You can get modeller here: https://salilab.org/modeller/download_installation.html). Syntax is as follows:
+
 ```modX.XX add_missing_atoms_modeller.py YOUR_SAVED_STRUCTURE.pdb #X.XX according to your modeller version.```
 
 The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simulations in spherical boundary conditions (system reduced to a sphere of a given radius, typically 18-30 Angstroms centered on a ligand atom). If any loop is incomplete and might be included in your simulation sphere, reconstruct it with modeller or simply with a morphing process after modelling the full receptor on GPCR-ModSim (http://open.gpcr-modsim.org/).
