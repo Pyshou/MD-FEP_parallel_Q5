@@ -60,17 +60,20 @@ Note: If you need a new version, ask Hugo Gutiérrez de Terán (PI of developmen
 
 **Assigning of protonation states**
 
-PyMemDyn (GPCR-ModSim) only runs a short restrained equilibration, and if you let it run, releases restraints gradually in subsequent steps (which we do not want). It also uses default protonation states of residues and all histidines are protonated in the delta position... . So we will need some manual edits!
+PyMemDyn (GPCR-ModSim) only runs a short restrained equilibration, and if you let it run, releases restraints gradually in subsequent steps (which we do not want). It also uses default protonation states of residues and all histidines are protonated in the delta position... . Also, it is likely using the old OPLSAA2005 force field (we will be using OPLSAAM2015). So we will need some manual edits!
 
 - Copy files located in the enclosed Gromacs_templates/Restrained_equil_files folder
+- Also copy the oplsaam.ff/ folder here.
 - On CSB:
 ```module load gromacs/2019```
-- Copy the full system (i.e. the "hexagon.pdb" file) into a "protein.pdb" file where you only keep protein coordinates.
+- Copy the full system (i.e. the "hexagon.pdb" file from previous section) into a "protein.pdb" file where you only keep protein coordinates (delete all from POPC lines).
 - Copy the oplsaam.ff folder here so PDB2GMX will find the improved OPLSAAM20015 force field
 - Run PDB2GMX to extract protein force field parameters and also generate a formated PDB for the protein:
 
 ``` gmx_d pdb2gmx -f protein.pdb -o protein_gmx.pdb -ignh -his```
 Choose OPLS-AA/M (2015, first option when oplsaam.ff/ folder detected here), TIP3P waters and assign histidine protonation states (PS. You can also add -glu/-asp/-arg/-lys flags i.e. to neutralize a usually charged residue located at the membrane interface, or ASP2.50 for agonist-bound structures)
+
+- Now replace the protein coordinates in the full system PDB file (i.e. hexagon.pdb) by those of the previously generated protein_gmx.pdb file (You can for instance copy protein_gmx.pdb into a system.pdb file, replace the header by the one of hexagon.pdb which contains information about the simulation box, remove the last two TER/ENDMDL lines, then you can grep POP hexagon.pdb >> system.pdb, grep SOL hexagon.pdb >> system.pdb, grep CL hexagon.pdb >> system.pdb and echo "TER" >> system.pdb, echo "ENDMDL" >> system.pdb).
 
 **Updating topology**
 
@@ -83,7 +86,6 @@ Choose OPLS-AA/M (2015, first option when oplsaam.ff/ folder detected here), TIP
 - In protein.itp, rename the object (i.e. "Protein_chain_A") in the [ moleculetype ] section to "protein" or at least to match the object name in topol.top
 - Remove the "#include "oplsaa.ff/forcefield.itp" line as it will be already loaded from the topol.top mother topology and Gromacs will complain about that.
 - At the end of the file, remove everything from "; Include Position restraint file" / after the improper section (same thing)
-- Now replace the protein coordinates in the full system PDB file (i.e. hexagon.pdb) by those of the previously generated protein_gmx.pdb file
 - Now adjust the number of POPC lipids, solvent molecules and ions in the end of topol.top . For counting residues, you can for instance use the following for POPC lipids (same applies for "SOL" molecules, dividing by 3 and not 52 while for ions, the counting is straighforward):
 
 ```nbPOPatm=$(grep POP system.pdb | wc -l); echo $nbPOPatm"/52"|bc``` # 52 atoms per Berger united atom POPC lipid
@@ -94,7 +96,7 @@ Choose OPLS-AA/M (2015, first option when oplsaam.ff/ folder detected here), TIP
 
 - Make a test compiling information for minimization
 
-```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -o minmize.tpr```
+```gmx_d grompp -f minmize.mdp -p topol.top -c system.pdb -r system.pdb -o minmize.tpr```
 
 - If the notes tell you that the charge of the system is not zero, the system will explode in PBC! So remove ions in the PDB or replace their atom and residue names by those of ions of opposite charge. You can also remove hydrogens of a water molecule you identified in a good spot and change the oxygen's atom and residue name to those of the ions you want to replace it by, and then move the new ion lines in the coorresponding ion coordinates part of the PDB. Then update the ion counts in topol.top and run the previous command again.
 
