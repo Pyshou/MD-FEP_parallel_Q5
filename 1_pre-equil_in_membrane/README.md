@@ -67,6 +67,7 @@ Note: If you need a new version or some help, ask Hugo Gutiérrez de Terán (PI 
 Choose OPLS-AA, TIP3P waters and assign histidine protonation states (PS. You can also add -glu/-asp/-arg/-lys flags i.e. to neutralize a usually charged residue located at the membrane interface, or ASP2.50 for agonist-bound structures)
 
 - Rename the generated file and restore mother topology
+
 ```mv topol.top protein.itp```
 
 ```mv '#topol.top.1#' topol.top```
