@@ -7,7 +7,13 @@ PS. I would advice to run a few relevant retrospective predictions to calibrate 
 
 ## **Option 1. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
+```/home/apps/schrodinger2015/utilities/ffld_server -imol2 rec.mol2 -opdb rec.pdb -print_parameters > LIG.ffld```
 
+```module load python/2.7.6```
+
+```source /home/apps/qtools/0.5.11/qtools_init.sh```
+
+```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
 
 ## **Option 2. Using ffld_server (accessible on CSB)**
 
