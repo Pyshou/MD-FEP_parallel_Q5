@@ -26,4 +26,4 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 - Add aligned and fromated binding site crystal waters (same formatting as other waters), and remove Gromacs waters (or lipid residues) that clash with them (check in PyMOL but don't save the PDB with it as it will mess with the formatting!).
 
-- Keep only POPC lipids that have atoms within 30 Angstroms of chosen ligand/residue atom as sphere center, as well as waters within sphere radius - 0.5 Angstroms (radius you choose for simulation sphere, typically between 18 and 30 Angstroms). You can save an HOHin.pdb and a POPin.pdb as reference files and use the enclosed script as follows:
+- Keep only waters within sphere radius - 0.5 Angstroms of chosen ligand/residue atom chosen as sphere center (radius you choose for simulation sphere, typically between 18 and 30 Angstroms). You can save an HOHin.pdb reference file and use the enclosed script as follows:
