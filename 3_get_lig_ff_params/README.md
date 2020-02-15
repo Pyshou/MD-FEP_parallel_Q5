@@ -13,7 +13,7 @@ PS. I would advice to run a few relevant retrospective predictions to calibrate 
 
 Go t
 
-## **Option 3. Using new force field parameters (LigParGen)**
+## **Complementary Option. Using improved force field parameters (LigParGen)**
 
 Go to http://zarbi.chem.yale.edu/ligpargen/index.html . For Q (as other MD engines), this can generate a ligand force field library file as well as paramterers to insert in your "Qopplsaa.prm" force field file. But do not use it until they have fix the problem of wrongly multiplied force constants for bonded parameters for Q (which might also be why they haven't benchmarked their energies with Q in their paper). 
 
