@@ -36,7 +36,7 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 - You eventually need to do the following renamings from Gromacs to Q:
 
-```sed -i -e 's/CD  ILE/CD1 ILE/g' output.pdb```
+```sed -i -e 's/CD \ ILE/CD1 ILE/g' output.pdb```
 
 - Then identify your C-terminal residue and rename it's "O1" oxygen to "O " (here, I had a Serine):
 
