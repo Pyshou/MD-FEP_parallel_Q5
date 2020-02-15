@@ -21,11 +21,35 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
-module load Schrodinger/2018-3-nsc1
+```module load Schrodinger/2018-3-nsc1```
 
 - Use the following enclosed script:
-$fep/get_ff_parameters.csh rec.mol2
 
+```./get_ff_parameters.csh rec.mol2```
+
+```./extract_ff_parameters.pl lig```
+
+- in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line
+- Modify zero masses to the good ones in NBON.prm
+- Remove columns of floating numbers 2 and 4 in IPHI.prm (only a force constant and equilibrium angle should remain)
+
+```mkdir Forcefield``` # Will merge with the oplsaam2015 protein force field (can put those line in a script om du vill..)
+
+```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/popc_hugo.lib Forcefield/```
+
+```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
+
+```cp /home/x_piema/software/Q5_Mauricio/ff/oplsaam2015/qoplsaa_withpopc.prm Forcefield/Qoplsaa.prm```
+
+```mv LIG.lib Forcefield/```
+
+```cat NBON.prm BOND.prm THET.prm PHI.prm IPHI.prm  > Qoplsaa.prm``` # New Qoplsaa.prm file !
+
+```./oplsaa2005_to_oplsaam2015.py Forcefield/Qoplsaa.prm Qoplsaa.prm```
+
+```mv Qoplsaa_2.prm Forcefield/Qoplsaa.prm```
+
+```rm BOND.prm IPHI.prm lig NBON.prm PHI.prm PRM rec.mae rec_out.mol2 THET.prm Qoplsaa.prm``` # Cleaning up et voila!
 
 ## **Complementary Option. Using improved force field parameters (LigParGen)**
 
