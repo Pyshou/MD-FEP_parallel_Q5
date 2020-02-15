@@ -20,7 +20,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```mkdir Forcefield```
 
-```cp oplsaam2015/popc_hugo.lib Forcefield/```
+```cp oplsaam2015/popc_hugo.lib Forcefield/``` # oplsaam2015 folder downloadable from here
 
 ```cp oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
 
@@ -50,7 +50,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```mkdir Forcefield``` # Will merge with the oplsaam2015 protein force field (can put those line in a script om du vill..)
 
-```cp oplsaam2015/popc_hugo.lib Forcefield/```
+```cp oplsaam2015/popc_hugo.lib Forcefield/``` # oplsaam2015 folder downloadable from here
 
 ```cp oplsaam2015/qoplsaa.lib Forcefield/Qoplsaa.lib```
 
