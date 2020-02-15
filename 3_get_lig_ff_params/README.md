@@ -17,6 +17,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 - In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
 - Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
+- All that and the following can be put in a script... .
 
 ```mkdir Forcefield```
 
