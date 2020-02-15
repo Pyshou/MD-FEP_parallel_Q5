@@ -17,7 +17,9 @@ If any residue is incomplete, use modeller to ass missing atoms with the enclose
 
 ```modX.XX add_missing_atoms_modeller.py YOUR_SAVED_STRUCTURE.pdb``` # X.XX according to your modeller version.
 
-The output is named like YOUR_SAVED_STRUCTURE_full.pdb. You will run MD/FEP simulations in spherical boundary conditions (system reduced to a sphere of a given radius, typically 18-30 Angstroms centered on a ligand atom). If any loop is incomplete and might be included in your simulation sphere, reconstruct it with modeller or simply with a morphing process after modelling the full receptor on GPCR-ModSim (http://open.gpcr-modsim.org/).
+The output is named like YOUR_SAVED_STRUCTURE_full.pdb. 
+
+- You will run MD/FEP simulations in spherical boundary conditions (system reduced to a sphere of a given radius, typically 18-30 Angstroms centered on a ligand atom). If any loop is incomplete and might be included in your simulation sphere, reconstruct it with modeller or simply with a morphing process after modelling the full receptor on GPCR-ModSim (http://open.gpcr-modsim.org/).
 
 
 ## 2. Inserting your receptor in a membrane
