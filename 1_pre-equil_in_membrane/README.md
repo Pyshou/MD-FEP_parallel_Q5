@@ -59,6 +59,8 @@ Note: If you need a new version, ask Hugo Gutiérrez de Terán (PI of developmen
 
 ## 3. Running restrained equilibration with Gromacs
 
+Some of this steps could be automated but I do not do this often (likely once or twice per MD/FEP project) and I prefer paying attention to these.
+
 **Assigning of protonation states**
 
 PyMemDyn (GPCR-ModSim) only runs a short restrained equilibration, and if you let it run, releases restraints gradually in subsequent steps (which we do not want). It also uses default protonation states of residues and all histidines are protonated in the delta position... . Also, it is likely using the old OPLSAA2005 force field (we will be using OPLSAAM2015). So we will need some manual edits!
