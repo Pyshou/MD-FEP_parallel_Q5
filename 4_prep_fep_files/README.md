@@ -14,7 +14,7 @@ Note: The scripts will work if you have used the protocol/formatting of section 
 
 ```python2.7 ./prep_mapping_files.py ff.lig.A/rec.pdb ff.lig.B/rec.pdb 0.2``` # A and B are the name of the respective (biggest and smallest) compounds. 0.2 Angstroms is the distance treshold for atoms to be considered as matched
 
-- Now open the generated mapping .txt file and whenever atoms are beyond the distance treshold, a "?" will be added so correct the information if needed and remove the "?". For atoms that will be anihilated, introduce a "DU" name
+- Now open the generated mapping .txt file and whenever atoms are beyond the distance treshold, a "?" will be added so correct the information if needed and remove the "?". For atoms that will be anihilated, introduce a "DU" name instead of the one of the closest found atom
 
 - Now pre-generate FEP files:
 
