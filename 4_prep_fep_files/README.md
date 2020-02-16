@@ -6,7 +6,6 @@ I usually carry out the transformation in four major steps: (i) updating the ele
 
 Note: The scripts will work if you have used the protocol/formatting of section 3 to generate force field parameters. Also, different Schrodinger versions of formatting might lead to different outputs (even when the parameters are the same), and very small things might need to be adjusted in those scripts (I can do that very easily if you provide me your inputs and I will also try to cleanup and comment the scripts further in the future)
 
-Note2 (ADD BELOW): You will need to skip the second and third steps if there is no anihilation, and to remove the pre-generated softcore statements if any.
 
 
 ## **Generation of FEP files**
@@ -15,7 +14,7 @@ Note2 (ADD BELOW): You will need to skip the second and third steps if there is 
 
 ```python2.7 ./prep_mapping_files.py ff.lig.A/rec.pdb ff.lig.B/rec.pdb 0.2``` # A and B are the name of the respective (biggest and smallest) compounds. 0.2 Angstroms is the distance treshold for atoms to be considered as matched
 
-- Now open the generated mapping .txt file and whenever atoms are beyond the distance treshold, a "?" will be added so correct the information if needed and remove it. For atoms that will be anihilated, introduce a "DU" name
+- Now open the generated mapping .txt file and whenever atoms are beyond the distance treshold, a "?" will be added so correct the information if needed and remove the "?". For atoms that will be anihilated, introduce a "DU" name
 
 - Now pre-generate FEP files:
 
