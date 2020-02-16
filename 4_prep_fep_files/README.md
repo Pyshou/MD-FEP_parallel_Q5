@@ -7,6 +7,6 @@ I usually carry out the transformation in four major steps: (i) updating the ele
 Note: The scripts will work if you have used the protocol/formatting of section 3 to generate force field parameters. And you will need to skip the second and third steps if there is no anihilation, and to remove the pre-generated softcore statements if any.
 
 
-## **1. Transformation**
+## **Generation of FEP files**
 
 ```/home/apps/schrodinger2015/utilities/ffld_server -imol2 rec.mol2 -opdb rec.pdb -print_parameters > LIG.ffld``` # Use a rec.mol2 file for the compound to generate force field parameters for
