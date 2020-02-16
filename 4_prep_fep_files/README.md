@@ -4,7 +4,7 @@ Here, we will conveniently pre-generate and edit input files for Q stating the a
 
 I usually carry out the transformation in four major steps: (i) updating the electrostatic potential to the one of compound B, (ii) adding a softcore potential for atoms that will be anihilated, (iii) setting van der Waals parameters to zero to anihilate those atoms and (iv) applying bonded term changes together with van der Waals transformation for remaining atoms. 
 
-Note: The scripts will work if you have used the protocol/formatting of section 3 to generate force field parameters. And you will need to skip the second and third steps if there is no anihilation, and to remove the pre-generated softcore statements.
+Note: The scripts will work if you have used the protocol/formatting of section 3 to generate force field parameters. And you will need to skip the second and third steps if there is no anihilation, and to remove the pre-generated softcore statements if any.
 
 
 ## **1. Transformation**
