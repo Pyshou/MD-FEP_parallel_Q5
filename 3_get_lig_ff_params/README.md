@@ -40,7 +40,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 ```rm LIG.prm``` # Optional, not needed anymore
 
 
-## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account or eventually on CSB)**
+## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
 ```module load Schrodinger/2018-3-nsc1```
 
