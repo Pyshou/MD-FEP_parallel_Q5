@@ -11,4 +11,4 @@ Note2 (ADD BELOW): You will need to skip the second and third steps if there is 
 
 ## **Generation of FEP files**
 
-```/home/apps/schrodinger2015/utilities/ffld_server -imol2 rec.mol2 -opdb rec.pdb -print_parameters > LIG.ffld``` # Use a rec.mol2 file for the compound to generate force field parameters for
+```python2.7 ./prep_mapping_files.py ff.lig.A/rec.pdb ff.lig.B/rec.pdb 0.2``` # Use a rec.mol2 file for the compound to generate force field parameters for
