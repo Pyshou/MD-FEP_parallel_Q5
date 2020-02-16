@@ -48,11 +48,11 @@ Note: The scripts will work if you have used the protocol/formatting of section 
 
 ```cat changes.fep >> lig_step1_3.fep```
 
-**LigParGen variant scripts**
+## **LigParGen variant scripts**
 
 One script has been made for the case when you use LigParGen parameters but I would avoid that as the bonded parameters for Q are wrong (see section 3 of this repository).
 
-**Amino acid FEPs**
+## **Amino acid FEPs**
 
 There are also variants for amino acid transformations (where the thermodynamics cycle implies a transformation of the amino acid in both the apo and holo receptor to evaluate the effect of mutations on ligand binding). Extract coordinates of the two amino acids to compare and superimpose them as much as you can to generate a mapping file as shown above. For the pre-generation of FEP files, you will need a library for each amino acids (A and B). To generate them, use the following:
 
