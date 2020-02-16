@@ -15,7 +15,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
 
-- In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (i.e. not shifted when there are like 4 characters). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water):
+- In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (i.e. not shifted when there are like 4 characters). Make sure that your residue name is "LIG" (needed later with scripts). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water), using the following:
 
 ```./cleanup_LIGpdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
@@ -50,7 +50,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```./extract_ff_parameters.pl lig```
 
-- In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (usually shifted when there are like 4 characters). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water):
+- In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (usually shifted when there are like 4 characters). Make sure that your residue name is "LIG" (needed later with scripts). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water), using the following:
 
 ```./cleanup_LIGpdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
