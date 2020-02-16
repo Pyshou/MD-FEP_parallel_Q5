@@ -24,7 +24,7 @@ Note: The scripts will work if you have used the protocol/formatting of section 
 
 - Use this script to double check that the charge is neat in both states:
 
-```python2.7 ./check_fractional_charges_LIGfep.py lig_step0.fep``` # You might see something as -0.0 or 0.0 (as you know, for the computer, operations on floating numbers often lead to a residual errors but what you see is a charge rounded to six decimals so only one zero shown means you just have zeros for the next five digits and it is in fact zeros.. ^^).
+```python2 ./check_fractional_charges_LIGfep.py lig_step0.fep``` # You might see something as -0.0 or 0.0 (as you know, for the computer, operations on floating numbers often lead to a residual errors but what you see is a charge rounded to six decimals so only one zero shown means you just have zeros for the next five digits and it is in fact zeros.. ^^).
 
 - If you have no atom to anihilate in your transformations, just remove lig_step1_1.fep as well as all softcore statements in lig_step1_2.fep (at the beggining + [softcore] section) and then skip next 2 points.
 
@@ -40,7 +40,7 @@ Note: The scripts will work if you have used the protocol/formatting of section 
 
 - Now check for bonded term changes:
 
-```python2.7 ./compare_bonffparams_Qoplsaa_ffld_server.py ff.lig.A/Forcefield/Qoplsaa.prm ff.lig.B/Forcefield/Qoplsaa.prm mapping_A_to_B.txt``` # If you rather used hetgrp_ffgen to generate ligand ff parameters, use the corresponding script instead. The script will display human-friendly changes for you and write FEP sections for Q in changes.fep
+```python2 ./compare_bonffparams_Qoplsaa_ffld_server.py ff.lig.A/Forcefield/Qoplsaa.prm ff.lig.B/Forcefield/Qoplsaa.prm mapping_A_to_B.txt``` # If you rather used hetgrp_ffgen to generate ligand ff parameters, use the corresponding script instead. The script will display human-friendly changes for you and write FEP sections for Q in changes.fep
 
 - Add bonded term changes to the last transformation step with the following:
 
@@ -54,4 +54,10 @@ One script has been made for the case when you use LigParGen parameters but I wo
 
 **Amino acid FEPs**
 
-There are also variants for amino acid transformations (where the thermodynamics cycle implies a transformation of the amino acid in both the apo and holo receptor to evaluate the effect of mutations on ligand binding).
+There are also variants for amino acid transformations (where the thermodynamics cycle implies a transformation of the amino acid in both the apo and holo receptor to evaluate the effect of mutations on ligand binding). Extract coordinates of the two amino acids to compare and superimpose them as much as you can to generate a mapping file as shown above. For the pre-generation of FEP files, you will need a library for each amino acids (A and B). To generate them, use the following:
+
+```python2 ./make_amino_acid_lib.py Forcefield/Qoplsaa.lib ARG``` # For arginine, for example
+
+Then use the respective .lib files instead of .prm files for the bonded term change evaluation script. It will also be looking for a Forcefield/Qoplsaa.prm file where your run the script:
+
+```python2 ./compare_bonffparams_Qoplsaa_amino_acids.py AA1.lib AA2.lib mapping_file.txt```
