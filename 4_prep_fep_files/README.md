@@ -36,7 +36,7 @@ Note: The scripts will work if you have used the protocol/formatting of section 
 
 ```cp lig_step1_2.fep lig_step1_3.fep``` # Move to lig_step1.fep instead if no anihilation
 
-- Update previous changes (introduced changes of column 3 into column 2 ("DU" for anihilations)) and add remaining van der waals (atom type) changes into columb 3 (look at respective Qoplsaa.prm parameter files in the "NONBONDED LIG PARAMETERS" section). You might need to define new atoms in the "[atom_types]" section
+- Update previous changes (introduced changes of column 3 into column 2 ("DU" for anihilations)) and add remaining van der waals (atom type) changes into columb 3 (look at respective Qoplsaa.prm parameter files in the "NONBONDED LIG PARAMETERS" section for respective compounds). You might need to define new atoms in the "[atom_types]" section
 
 - Now check for bonded term changes:
 
