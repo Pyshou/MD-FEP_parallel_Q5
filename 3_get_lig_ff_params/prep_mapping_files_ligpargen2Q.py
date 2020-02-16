@@ -19,7 +19,7 @@ def distance(x1,x2,y1,y2,z1,z2):
 
 if len(sys.argv)==2:# One argument
 	if str(sys.argv[1])=="-h":
-		sys.exit("\nUsage: ./prep_mapping_files.py <LIGA_top.pdb> <LIGB_top.pdb> <dist_treshold>\n")
+		sys.exit("\nUsage: ./prep_mapping_files_ligpargen2Q.py <LIGA_top.pdb> <LIGB_top.pdb> <dist_treshold>\n")
 	else:
 		 sys.exit("ERROR: You need to provide the PDB topology files of ligands A and B as respective arguments, and a distance mapping treshold (in A) as third argument.")
 elif len(sys.argv)<4:# Not enough arguments
