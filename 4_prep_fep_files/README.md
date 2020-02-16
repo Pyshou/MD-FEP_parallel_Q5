@@ -40,9 +40,9 @@ Note: The scripts will work if you have used the protocol/formatting of section 
 
 - Now check for bonded term changes:
 
-```python2.7 ./compare_bonffparams_Qoplsaa_ffld_server.py ff.lig.A/Forcefield/Qoplsaa.prm ff.lig.B/Forcefield/Qoplsaa.prm mapping_A_to_B.txt``` # If you rather used hetgrp_ffgen to generate ligand ff paraneters, use the corresponding script instead. The script will display changes for you and write fep sections in changes.fep
+```python2.7 ./compare_bonffparams_Qoplsaa_ffld_server.py ff.lig.A/Forcefield/Qoplsaa.prm ff.lig.B/Forcefield/Qoplsaa.prm mapping_A_to_B.txt``` # If you rather used hetgrp_ffgen to generate ligand ff parameters, use the corresponding script instead. The script will display human-friendly changes for you and write FEP sections for Q in changes.fep
 
-- Add bonded term changes with the following:
+- Add bonded term changes to the last transformation step with the following:
 
 ```echo "" >> lig_step1_3.fep```
 
