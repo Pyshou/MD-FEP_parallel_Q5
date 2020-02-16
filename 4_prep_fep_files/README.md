@@ -37,11 +37,13 @@ Note2 (ADD BELOW): You will need to skip the second and third steps if there is 
 
 ```cp lig_step1_2.fep lig_step1_3.fep``` # Move to lig_step1.fep instead if no anihilation
 
-- Update previous changes (introduced changes of column 3 into column 2 ("DU" for anihilations)) and add remaining van der waals (atom type) changes into columb 3 (look at respective Qoplsaa.prm parameter files in the "NONBONDED LIG PARAMETERS" section). You might need to define new atoms in the "[atom_types]" section.
+- Update previous changes (introduced changes of column 3 into column 2 ("DU" for anihilations)) and add remaining van der waals (atom type) changes into columb 3 (look at respective Qoplsaa.prm parameter files in the "NONBONDED LIG PARAMETERS" section). You might need to define new atoms in the "[atom_types]" section
 
 - Now check for bonded term changes:
 
-```python2.7 ./compare_bonffparams_Qoplsaa_ffld_server.py ff.lig.A/Forcefield/Qoplsaa.prm ff.lig.B/Forcefield/Qoplsaa.prm mapping_A_to_B.txt``` # If you rather used hetgrp_ffgen to generate ligand ff paraneters, use the corresponding script instead. The script will display changes for you and write fep sections in changes.fep. Add them with the following:
+```python2.7 ./compare_bonffparams_Qoplsaa_ffld_server.py ff.lig.A/Forcefield/Qoplsaa.prm ff.lig.B/Forcefield/Qoplsaa.prm mapping_A_to_B.txt``` # If you rather used hetgrp_ffgen to generate ligand ff paraneters, use the corresponding script instead. The script will display changes for you and write fep sections in changes.fep
+
+- Add bonded term changes with the following:
 
 ```echo "" >> lig_step1_3.fep```
 
