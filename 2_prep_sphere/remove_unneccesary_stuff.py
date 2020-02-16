@@ -18,7 +18,7 @@ import sys, os
 
 if len(sys.argv) == 2: # If 1 argument
         if str(sys.argv[1]) == "-h" : # Help
-                sys.exit("\nUsage : make_sphere.py <input_file>>\n\nOptions:\n-h : Usage\n")
+                sys.exit("\nUsage : remove_unneccesary_stuff.py <input_file>>\n\nOptions:\n-h : Usage\n")
 	else:
 		if not ".pdb" in str(sys.argv[1]):
 			sys.exit("ERROR: Your first argument has to be a PDB file")
