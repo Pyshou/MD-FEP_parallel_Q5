@@ -15,7 +15,10 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
 
-- Save the rec.pdb file for later and only keep coordinate lines and also remove occupancy and B-factor columns (cleaning up for Q).
+- In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (i.e. not shifted when there are like 4 characters). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water):
+
+```./cleanup_pdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
+
 - In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
 - Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
 - All that and the following can be put in a script... .
@@ -46,6 +49,10 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 ```./get_ff_parameters.csh rec.mol2```
 
 ```./extract_ff_parameters.pl lig```
+
+- In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (usually shifted when there are like 4 characters). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water):
+
+```./cleanup_pdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
 - in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line
 - Modify zero masses to the good ones in NBON.prm
