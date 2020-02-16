@@ -4,6 +4,8 @@ For each FEP, you will need the force field parameters of both the MD topology's
 
 PS. I would advice to run a few relevant retrospective predictions with already tested compounds to calibrate your MD/FEP protocol first (i.e. protonation states in the binding site, sphere size, simulation time..) and see if it allows to reproduce experimental binding affinities.
 
+Use one of the following options and always the same for the same project (seperate scripts for preparing FEP files later have been made as the needed markers/comments in force field files differ and are needed by scripts)!
+
 
 ## **Option 1. Using ffld_server (accessible on CSB)**
 
