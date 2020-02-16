@@ -65,3 +65,5 @@ There are also variants for amino acid transformations (where the thermodynamics
 - After generating FEP files using the appropriate prep_fep_file_amino_acids/main.py script (using the generated .libs as input) and editing those, run the bonded term change evaluation script. It will also be looking for a Forcefield/Qoplsaa.prm file where your run the script:
 
 ```python2 ./compare_bonffparams_Qoplsaa_amino_acids.py AA1.lib AA2.lib mapping_file.txt```
+
+- Then introduce the changes in changes.fep into your lig_step1_3.fep file... .
