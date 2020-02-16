@@ -54,7 +54,7 @@ One script has been made for the case when you use LigParGen parameters but I wo
 
 ## **Amino acid FEPs**
 
-There are also variants for amino acid transformations (where the thermodynamics cycle implies a transformation of the amino acid in both the apo and holo receptor to evaluate the effect of mutations on ligand binding). 
+There are also variants for amino acid transformations (where the thermodynamics cycle implies a transformation of the amino acid in both the apo and holo receptor to evaluate the effect of mutations on ligand binding). The procedure is similar but here are differences: 
 
 - Extract coordinates of the two amino acids to compare and superimpose them as much as you can to generate a mapping file as shown above. 
 
