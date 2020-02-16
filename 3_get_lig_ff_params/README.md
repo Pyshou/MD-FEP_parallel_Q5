@@ -17,7 +17,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 - In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (i.e. not shifted when there are like 4 characters). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water):
 
-```./cleanup_pdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
+```./cleanup_LIGpdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
 - In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
 - Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
@@ -52,7 +52,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 - In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (usually shifted when there are like 4 characters). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water):
 
-```./cleanup_pdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
+```./cleanup_LIGpdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
 - in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line
 - Modify zero masses to the good ones in NBON.prm
