@@ -15,6 +15,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
 
+- Save the rec.pdb file for later and only keep coordinate lines and also remove occupancy and B-factor columns (cleaning up for Q).
 - In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
 - Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
 - All that and the following can be put in a script... .
@@ -34,6 +35,7 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 ```mv Qoplsaa_2.prm Forcefield/Qoplsaa.prm``` # Replace old by merged force field
 
 ```rm LIG.prm``` # Optional, not needed anymore
+
 
 ## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
