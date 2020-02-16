@@ -9,9 +9,9 @@ PS. I would advice to run a few relevant retrospective predictions with already 
 
 ```/home/apps/schrodinger2015/utilities/ffld_server -imol2 rec.mol2 -opdb rec.pdb -print_parameters > LIG.ffld``` # Use a rec.mol2 file for the compound to generate force field parameters for
 
-```module load python/2.7.6```
+```module load python/2.7.6
 
-```source /home/apps/qtools/0.5.11/qtools_init.sh```
+source /home/apps/qtools/0.5.11/qtools_init.sh```
 
 ```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
 
