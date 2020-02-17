@@ -38,7 +38,7 @@ You can use a bash loop like that to list unfinished or problematic simulations:
 
 ```for fold in $(ls -d A_to_B/*/md_step*/md_rs*/dc*/); do nb=$(tail $fold/dc*log | grep "terminated normally" | wc -l); if [ $nb -eq 0 ]; then echo $fold" is not finished!"; fi; done```
 
-## **4. Analyzing results **
+## **4. Analyzing the results**
 
 ### **Analyzing the data**
 
