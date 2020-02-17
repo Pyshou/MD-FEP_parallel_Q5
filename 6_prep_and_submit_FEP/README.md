@@ -31,14 +31,3 @@ We will set up and submit an MD/FEP transformation where every intermediate stat
 ## **2. Submitting jobs**
 
 Outside the FEP folder, run the enclosed **master_script_beskow.sh** script that you can adjust (path to called scripts at the beginning, folders to go to and more lines if running more than 3 replica per lambda window / intermediate state), as well as the enclosed scripts it calls (some lines in **make_submission_file_beskow.sh** might need to be changed if you are not running those on Beskow implying a different configuration of nodes and if using another allocation project ID than "2019-2-16")
-
-## **3. Checking data integrity after job completion**
-
-You can use a bash loop like that to list unfinished or problematic simulations:
-
-```for fold in $(ls -d A_to_B/*/md_step*/md_rs*/dc*/); do nb=$(tail $fold/dc*log | grep "terminated normally" | wc -l); if [ $nb -eq 0 ]; then echo $fold" is not finished!"; fi; done```
-
-
-## **4. Add intermediate steps**
-
-## **5. Cleaning up FEP folder**
