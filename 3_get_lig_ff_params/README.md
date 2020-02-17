@@ -23,7 +23,8 @@ Use one of the following options and always the same for the same project (as yo
 
 - In the generated LIG.lib and LIG.prm files, change "lig." to "T" for compatibility with scripts later (juse use a sed..).
 - Also just remove the header in the LIG.lib library file (starting with "#", not sure that Q likes that).
-- All that and the following can be put in a script... .
+- And make sure the charge group section in the LIG.lib file starts with a heavy atom.
+- Then, all that and the following can be put in a script... .
 
 ```mkdir Forcefield```
 
@@ -58,7 +59,7 @@ This option might be convenient for amino acid FEPs as you will have charge grou
 
 ```./cleanup_LIGpdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
-- in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line unless you are doing amino acid FEPs
+- in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line unless you are doing amino acid FEPs and make sure the charge group section starts with a heavy atom.
 - Modify zero masses to the good ones in NBON.prm
 - Remove columns of floating numbers 2 and 4 in IPHI.prm (only a force constant and equilibrium angle should remain)
 
