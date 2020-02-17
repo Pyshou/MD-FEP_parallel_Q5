@@ -35,4 +35,4 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 
 - Now, replace the ligand coordinates by those of your aligned compound A (rec.pdb prepared in section 3).
 
-- Remove clashing waters.
+- Remove waters clashing with the ligand.
