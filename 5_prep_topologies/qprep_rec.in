@@ -1,0 +1,14 @@
+rl Forcefield/Qoplsaa.lib
+rl Forcefield/popc_hugo.lib
+rl Forcefield/LIG.lib
+rprm Forcefield/Qoplsaa.prm
+rp rec.pdb
+boundary 1 310:N9 21
+addbond 66:SG 154:SG y
+addbond 69:SG 141:SG y
+addbond 72:SG 161:SG y
+addbond 244:SG 247:SG y
+maketop LIG_Adenosine_rec
+writetop topology.top
+writepdb topology.pdb y
+q
