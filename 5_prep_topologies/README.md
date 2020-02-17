@@ -33,6 +33,11 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 
 - Do the same as before (get the "Forcefield" folder of your ligand A) and instead, your rec.pdb is the receptor you prepared in section 2 of this repository.
 
-- Now, replace the ligand coordinates by those of your aligned compound A (rec.pdb prepared in section 3).
+- Now, replace the ligand coordinates by those of your aligned compound A (rec.pdb prepared in section 3). For the superimposition, you can just use the PyMOL Pair Fitting Wizard and editing mode for adjusting torsions to generate an initial binding mode.. . If you see several possible orientations for the introduced moiety, I would advice generating a topology and running a FEP for each solution and only retain the one leading to the lowest binding free energy.
 
-- Remove waters clashing with the ligand.
+- Remove waters clashing with the ligand. To do it fast, use the script of section 2 as follows:
+
+```./remove_clashes.py LIG -s HOH -t 2.0 rec.pdb``` # Output is rec_noclash.pdb. Double-check and this one will become your rec.pdb (rename it!).
+
+
+
