@@ -94,6 +94,8 @@ What you can eventually do though is to use better quality **partial charges** b
 ```./ligpargen2Q_charges.py LIG.lib LIG_prgn.lib N9``` # LIG.lib is a library obtained from the above procedure (option 1 or 2, likely in the corresponding "Forcefield/" folder) and LIG_prgn.lib the one form LigParGen. This generates a LIG_new.lib file with new partial charges and original atom names (replace the old one by it then).
 
 
-**Torsion Scans**
+## **Torsion Scans**
 
-If you have rotabable bonds attached to atypical heterocycles for instance, you might have improperly described torsional terms in the original force field, which covers only a tiny fraction of chemical space. This could just kill your results by sampling wrong and largely penalizing orientations for the FEPed moieties (have a look at https://www.nature.com/articles/s41598-017-04905-0). Improvements should be seen in the costly OPLS3 force field from Scrhodinger (or the new LigParGen parameters which are not fixed for Q yet though). If you want to check and reparametrize key torsions for some substituents on a particular position (in control MD/FEP calculations?), then go to the Torsion_Scan folder.
+If you have rotabable bonds attached to atypical heterocycles for instance, you might have improperly described torsional terms in the original force field, which covers only a tiny fraction of chemical space. This could just kill your results by sampling wrong and largely penalizing orientations for the FEPed moieties (have a look at https://www.nature.com/articles/s41598-017-04905-0). Improvements should be seen in the costly OPLS3 force field from Scrhodinger (or the new LigParGen parameters which are not fixed for Q yet though). If you want to check and reparametrize key torsions for some substituents on a particular position (in control MD/FEP calculations?), then check the following.
+
+
