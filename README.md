@@ -9,3 +9,5 @@ The different sections might seem detailed but unless you have someone to show y
 Some steps could definitely be semi-automated further but one always needs to pay attention to little things that could screw up your simulations if you are not careful!
 
 I would advice running MD/FEP calculations on a set of closely-related known ligands first to see if you can replicate experimental binding free energies with your system and simulation setup first.
+
+Also note that the different scripts were originally made for personal use and sharing with colleagues but they will need to be commented and cleaned up in the future, in case of improvements needed. You can always contact me at pierre.matricon@gmail.com and I could easily fix some for you.
