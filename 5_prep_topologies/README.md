@@ -20,7 +20,7 @@ Note: If have used ffld_server to generate parameters in section 3 and you are d
 
 - Generate a topology with Qprep. The syntax is as follows:
 
-```$QPATH/bin/qprep5 < qprep_wat.in > qprep.out``` # $QPATH=where you installed Q.. . Install Q5 from the enclosed script if needed.
+```$QPATH/bin/qprep5 < qprep_wat.in > qprep.out``` # $QPATH=where you installed Q.. . Install Q5 using the script located in the main folder of this repository if needed. This version will be needed to run and analyze simulations with compatibility with analysis scripts later.
 
 - Check the qprep.out file and that you have no warning about fraction charge groups if you have defined several (if doing amino acid FEPs)!
 
