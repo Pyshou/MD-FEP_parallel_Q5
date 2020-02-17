@@ -14,6 +14,8 @@ Here, we will make a topology for the MD/FEP transformation of our ligand A both
 
 - Copy the enclosed qprep_wat.in file and 
 
-- Inside the Forcefield/ folder, make sure the charge group section in the LIG.lib file starts with a heavy atom. And if you are doing amino acid FEPs, you should define neutral charge group by fragmenting the molecule (one line listing atoms per charge group).
+- Inside the Forcefield/ folder, make sure the charge group section in the LIG.lib file starts with a heavy atom. 
+
+Note: If you are doing amino acid FEPs, you should define neutral (or neat) charge groups by fragmenting the molecule (one line listing atoms per charge group, starting from a heavy atom). If you don't do that (for amino acid FEPs), you will get shake failure errors during the simulations as ligand atoms will not be defined as Q atoms in FEP files (and they will have a cut-off to treat long range interactions with LRF).
 
 ```
