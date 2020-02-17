@@ -56,7 +56,7 @@ Use one of the following options and always the same for the same project (as yo
 
 ```./cleanup_LIGpdb4Q.pdb rec.pdb``` # Then replace old by the generated rec_clean.pdb file
 
-- in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line
+- in LIG.lib, change 'lig' to 'LIG' in first line and change charge_groups content to a single horizontal line unless you are doing amino acid FEPs
 - Modify zero masses to the good ones in NBON.prm
 - Remove columns of floating numbers 2 and 4 in IPHI.prm (only a force constant and equilibrium angle should remain)
 
