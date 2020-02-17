@@ -15,7 +15,7 @@ Use one of the following options and always the same for the same project (as yo
 
 ```source /home/apps/qtools/0.5.11/qtools_init.sh```
 
-```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can download and install qtools on your account from the following repository: https://github.com/mpurg/qtools .
+```python2.7 /home/apps/qtools/0.5.11/qscripts-cli/q_ffld2q.py LIG.ffld rec.pdb -o LIG``` # Note that you can also download and install qtools from the following repository: https://github.com/mpurg/qtools .
 
 - In the generated rec.pdb ligand coordinate file, check that all atom names are properly columned (i.e. not shifted when there are like 4 characters). Make sure that your residue name is "LIG" (needed later with scripts). And also cleanup the PDB that will be used to generate topologies with Q (i.e. ligands in water), using the following:
 
