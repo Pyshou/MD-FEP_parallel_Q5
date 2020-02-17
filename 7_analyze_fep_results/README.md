@@ -47,5 +47,12 @@ After adjusting the path to your Qprep excecutable at the beggining of the follo
 
 ## **4. Add intermediate steps**
 
+Inside the main FEP folder, just run:
+
+```bash ./cleanup.sh``` # This will delete files that are not needed anymore, as well as 
+
 ## **5. Cleaning up FEP folder**
 
+This is for when you're sure you're done with the data for your FEP and want to free as much space as possible. Inside the main FEP folder, just run:
+
+```bash ./cleanup.sh``` # This will delete files that are not needed anymore and zip energy files, production log files.
