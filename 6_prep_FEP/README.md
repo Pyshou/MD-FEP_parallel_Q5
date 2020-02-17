@@ -1,5 +1,7 @@
 # Preparing FEP folders and submitting the jobs 
 
+This can be easily scripted for each case.
+
 - Now that you have all the needed files, create a FEP folder (i.e. A_to_B/) and within it, one for the ligand transformation in water (WAT/), and one for the transformation in the receptor binding site (REC/). 
 
 - Each of those should contain an md_step0/, md_step1_1/, md_step1_2/ and md_step1_3/ folder (or just md_step0/ and md_step1/ if you are not anihilating any atom). 
@@ -10,7 +12,7 @@
 
 - Inside the */md_step*/input_files/*.inp and */md_step*/input_files/dc0 files, change she shell_radius (inner sphere radius) to your sphere radius minus 3 Angstroms inside the REC/ folder and minus 1 Angstrom inside the WAT/ folder (defining the outer shell shielding region for all simulations).
 
-- Inside the REC/md_step*/input_files/eq*.inp files, adjust the sequence_restraints (atom index "4926" should become the index of the last solute (ligand) atom as found in the previous topology.pdb).
+- Inside the REC/md_step*/input_files/eq*.inp files, adjust the sequence_restraints (atom index "4926" should become the index of the last solute (ligand) atom as found in the previously generated topology.pdb).
 
 - Inside the WAT/md_step*/input_files/eq*.inp and the WAT/md_step*/input_files/dc0 files, adjust the atom restraints section (first column is atom index of sphere center ligand atom as defined when you made the water topology, second third and fourth are its initial coordinates). This will keep this atom in the center of the sphere (otherwise, hydrophobic molecules might move close to the border of the sphere or so..).
 
