@@ -44,6 +44,8 @@ Use one of the following options and always the same for the same project (as yo
 
 ## **Option 2. Using hetgrp_ffgen (still accessible on Tetralith, at least on Pierre's account)**
 
+This option might be convenient for amino acid FEPs as you will have charge groups defined for the compound (you will see later).
+
 ```module load Schrodinger/2018-3-nsc1```
 
 - Use the following enclosed script:
