@@ -12,10 +12,12 @@ Here, we will make a topology for the MD/FEP transformation of our ligand A both
 
 - Also copy the associated rec.pdb you created at that stage (with cleaned up formated coordinates of the ligand from section 3).
 
-- Copy the enclosed qprep_wat.in file and 
+- Copy the enclosed qprep_wat.in file and adjust the solvate and boundary lines by changing the "N9" atom name by the one of your ligand you choose as sphere center. In these two lines, also change the "21" to the sphere radius you have chosen when setting up your sphere in section 2.
 
 - Inside the Forcefield/ folder, make sure the charge group section in the LIG.lib file starts with a heavy atom. 
 
 Note: If you are doing amino acid FEPs, you should define neutral (or neat) charge groups by fragmenting the molecule (one line listing atoms per charge group, starting from a heavy atom). If you don't do that (for amino acid FEPs), you will get shake failure errors during the simulations as ligand atoms will not be defined as Q atoms in FEP files (and they will have a cut-off to treat long range interactions with LRF).
 
-```
+- Generate a topology with Qprep. The syntax is as follows:
+
+```qprep5 < qprep_wat.in > qprep.out```
