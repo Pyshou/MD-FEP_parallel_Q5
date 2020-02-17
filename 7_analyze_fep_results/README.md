@@ -15,7 +15,7 @@ Inside each REC/ and WAT/ folder, run the enclosed:
 
 This script after adjusting the paths to the Qfep executable and the input_files/ folder (see enclosed template folder). This folder requires a qfepX.in file for each main transformation step, loading the corresponding energy files sequentially (which means you should have a qfep11.in file there when having 11 lambda windows, i.e. as default in step0), Also, the first column of the third row should corresponding to RT in kcal/mol according to the target temperature in your simulations (here 300K). 
 
-This scripts normally considers up to 9 replica (the CSV output will have several time the same replica-wise value when using less so ignore the duplicated values). the deltadeltaG results will be the average in the receptor minus in water and you can also look for the forward-reverse hysteresis error (forward-reverse) and see from the full_data.csv output if there are unconverged steps (if so, look at the next section to add intermediate steps). And ultimately, use an SEM between replica data as main error (you might want to add replica later if needed)
+This scripts normally considers up to 9 replica (the CSV output will have several time the same replica-wise value when using less so ignore the duplicated values). the deltadeltaG results will be the average in the receptor minus in water and you can also look for the forward-reverse hysteresis error (forward-reverse) and see from the full_data.csv output if there are unconverged steps (if so, look at the next next section to add intermediate steps). And ultimately, use an SEM between replica data as main error (you might want to add replica later if needed)
 
 **Option 2. Slow but smart**
 
