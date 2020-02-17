@@ -66,6 +66,18 @@ After running it in the REC/ and WAT/ folders, go one folder behind and run:
 
 ### **Extracting MD snapshots**
 
+After adjusting the path to your Qprep excecutable at the beggining of the following scripts, go to the corresponding */md_step*/md_rs*/ folder (replica of step0 of last one) use:
+
+- For extract the last snapshot of an MD trajectory:
+
+```bash ./extract_dc_last_frame.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # X being the intermediate state number (likely 1 for step0 and 41 for last step to check end states / respective compounds) and the second argument being a path to the folder where you built the corresponding topology for the transformed compound A (should contain a "Forcefield/" folder).
+
+- For extracting average coordinates from an MD trajectory (expect weird structures for flexible parts but good to check what remains very stable or doesn't really move):
+```bash ./extract_dc_average.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # Same syntax.
+
+ - For the last snapshot of the last equilibration step:
+```bash ./extract_eq_last_frame.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # Same syntax.
+
 ## **5. Add intermediate steps**
 
 ## **6. Cleaning up FEP folder**
