@@ -25,3 +25,10 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 - Check the qprep.out file and that you have no warning about fraction charge groups if you have defined several (if doing amino acid FEPs)!
 
 - Open the topology (topology.top file) and find the line containing the "solvent radii" definition. Change the second column by your sphere radius (first column) minus 0.5 Angstroms.
+
+
+## **2. Ligand in the receptor**
+
+- Make another folder rather called i.e. top_X_rec (X=name of your compound A).
+
+- Do the same as before but instead, your rec.pdb is the 
