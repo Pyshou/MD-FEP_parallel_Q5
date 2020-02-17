@@ -1,4 +1,11 @@
-### **Analyzing the data**
+## **1. Checking data integrity after job completion**
+
+You can use a bash loop like that to list unfinished or problematic simulations:
+
+```for fold in $(ls -d A_to_B/*/md_step*/md_rs*/dc*/); do nb=$(tail $fold/dc*log | grep "terminated normally" | wc -l); if [ $nb -eq 0 ]; then echo $fold" is not finished!"; fi; done```
+
+
+## **2. Analyzing the data**
 
 **Option 1. Fast but not taking advantage of the possible combinations of replica choices per window**
 
@@ -22,7 +29,7 @@ After running it in the REC/ and WAT/ folders, go one folder behind and run:
 
 ```python2 ./analyse_scambled_data.py``` # This returns summed up results (average dG in receptor minus dG in water with standard deviation for 1000 agains 1000 points (10^6), using the other output from previous script)
 
-### **Extracting MD snapshots**
+### **3. Extracting MD snapshots**
 
 After adjusting the path to your Qprep excecutable at the beggining of the following scripts, go to the corresponding */md_step*/md_rs*/ folder (replica of step0 of last one) use:
 
@@ -37,3 +44,8 @@ After adjusting the path to your Qprep excecutable at the beggining of the follo
  - For the last snapshot of the last equilibration step:
 
 ```bash ./extract_eq_last_frame.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # Same syntax.
+
+## **4. Add intermediate steps**
+
+## **5. Cleaning up FEP folder**
+
