@@ -1,6 +1,6 @@
 # Preparing FEP folders and submitting the jobs 
 
-This can be easily scripted for each case.
+We will set up and submit an MD/FEP transformation where every intermediate state will be equilibrated and equilibrated independently. This is advantageous to get results relatively fast when you can run a lot of jobs on a supercomputer and also, you will need much less replica for achieving convergence since you will avoid getting trapped in low energy regions of intermediate states that may result in not sampling the last state (compound B) fairly. This can be easily scripted for each case if more convenient.
 
 - Now that you have all the needed files, create a FEP folder (i.e. A_to_B/) and within it, one for the ligand transformation in water (WAT/), and one for the transformation in the receptor binding site (REC/). 
 
@@ -24,7 +24,7 @@ This can be easily scripted for each case.
 
 - Then, generate those production files out of the dc0 template using:
 
-```python2 make_fep_files_parallell.py -i FEP.in``` # You will now see dc*.inp files with lambda values stated in the end. Note that you can also use the make_fep_files.py if you prefer to run the transformations through a single production ("serial") instead of equilibrating and simulating each state independently ("parallel"). But then adjust the submission accordingly from next points if so...
+```python2 make_fep_files_parallell.py -i FEP.in``` # You will now see dc*.inp files with lambda values stated in the end.
 
 ## **1. Preparing the receptor structure (skip if using option 2 in next section)**
 
