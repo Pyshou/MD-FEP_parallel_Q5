@@ -98,4 +98,26 @@ What you can eventually do though is to use better quality **partial charges** b
 
 If you have rotabable bonds attached to atypical heterocycles for instance, you might have improperly described torsional terms in the original force field, which covers only a tiny fraction of chemical space. This could just kill your results by sampling wrong and largely penalizing orientations for the FEPed moieties (have a look at https://www.nature.com/articles/s41598-017-04905-0). Improvements should be seen in the costly OPLS3 force field from Scrhodinger (or the new LigParGen parameters which are not fixed for Q yet though). If you want to check and reparametrize key torsions for some substituents on a particular position (in control MD/FEP calculations?), then check the following.
 
+Ideally, use a fragment "tool" compound representing your molecular scaffold with the attached moiety you want to scan a torsion for. This will be faster, avoid crashes and potential clashes during the scan as well.
 
+- On Tetralith via Thinlinc or GUI / ssh -X:
+
+```module load gaussian/G09RevE.01-bdist```
+
+- Edit a .com file using the one enclosed as template, with the atoms and coordinates of you compound PDB instead, with the torsion atoms in order within the 4 first lines for convenience later.
+
+- Also adjust the basis set if needed as well as the overall charge of the system and the overall spin multiplicity ("0 1" in my case).
+
+- Open the viewer:
+
+```gview```
+
+- Open your LIG_cartesian.com with and check the structure as well as torsion atom indices.
+
+- Save a new Gaussian input LIG.com file (uncheck the "cartesian" option) and use the header of the old file!
+
+- Check that torsion atoms in order are 1, 2, 3 and 4 respectively
+
+- In the last block, identify the line starting with "D1" (torsion 1), check the starting angle value and at the end of the line, add "  S 18 10.0", for instance if rotating 18 times by 10 degrees (symmetric molecule, I would advise a full rotation to double check symmetry in the scan though). Also leave two blank lines at the end of the file.
+
+- Then use the enclosed submission script on Tetralith.
