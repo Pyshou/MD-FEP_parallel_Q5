@@ -1,0 +1,11 @@
+rl Forcefield/Qoplsaa.lib
+rl Forcefield/popc_hugo.lib
+rl Forcefield/LIG.lib
+rprm Forcefield/Qoplsaa.prm
+rp rec.pdb
+boundary 1 1:N9 21
+solvate 1:N9 21 1 HOH
+maketop LIG_test
+writetop topology.top
+writepdb topology.pdb y
+q
