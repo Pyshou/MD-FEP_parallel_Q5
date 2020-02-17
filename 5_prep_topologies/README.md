@@ -33,11 +33,24 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 
 - Do the same as before (get the "Forcefield" folder of your ligand A) and instead, your rec.pdb is the receptor you prepared in section 2 of this repository.
 
-- Now, replace the ligand coordinates by those of your aligned compound A (rec.pdb prepared in section 3). For the superimposition, you can just use the PyMOL Pair Fitting Wizard and editing mode for adjusting torsions to generate an initial binding mode.. . If you see several possible orientations for the introduced moiety, I would advice generating a topology and running a FEP for each solution and only retain the one leading to the lowest binding free energy.
+- Now, replace the ligand coordinates by those of your aligned compound A (rec.pdb prepared in section 3). For the superimposition, you can just use the PyMOL Pair Fitting Wizard and editing mode for adjusting torsions to generate an initial binding mode.. . If you see several possible orientations for the introduced moiety, I would advice generating a topology for each and running i.e. a "moiety anihilation" FEP for all and then only retain the one leading to the lowest relative binding free energy.
 
 - Remove waters clashing with the ligand. To do it fast, use the script of section 2 as follows:
 
 ```./remove_clashes.py LIG -s HOH -t 2.0 rec.pdb``` # Output is rec_noclash.pdb. Double-check and this one will become your rec.pdb (rename it!).
 
+- Copy the enclosed qprep_rec.in file and adjust the "boundary" line by changing the "N9" atom name by the one of your ligand you choose as sphere center. In this line, also change the "21" to the sphere radius you have chosen when setting up your sphere in section 2 of the repository.
 
+- Note that there is no solvate section in our case since we use Gromacs waters (and this doesn't work properly with our POPC lipids which are not properly recognized with qprep to estimate density of waters anyway). But use solvate as above if you start from a PDB structure of a soluble protein add want to add Q waters instead.
 
+- Also adjust the "addbond" sections to assign disulfide bridges between cysteines's SG atoms (assignment by residue number, the residue being normally already named "CYX" in your rec.pdb according to section 2 of the repository). 
+
+- As before, inside the Forcefield/ folder, make sure the charge group section in the LIG.lib file starts with a heavy atom. 
+
+Note: If you are doing amino acid FEPs, you should define neutral (or neat) charge groups by fragmenting the molecule (one line listing atoms per charge group, starting from a heavy atom). If you don't do that (for amino acid FEPs), you will get shake failure errors during the simulations as ligand atoms will not be defined as Q atoms in FEP files (and they will have a cut-off to treat long range interactions with LRF).
+
+- Generate a topology with Qprep. The syntax is as follows:
+
+```$QPATH/bin/qprep5 < qprep_rec.in > qprep.out``` # $QPATH=where you installed Q..
+
+- Open the topology (topology.top file) and again, find the line containing the "solvent radii" definition. Change the second column by your sphere radius (first column) minus 0.5 Angstroms (the original value is wrong as it is estimated from the number of waters / solvent density in the system while POPC lipids are ignored).
