@@ -18,7 +18,7 @@ Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer a
 
 ```remove_hydrogens.py rec_formated.pdb``` # Output is rec_noH.pdb
 
-- Add fromated PDB coordinates of aligned ligand (with residue name "LIG") between the protein and the first POPC lipid atom, and add "GAP" string-containing lines before and after the ligand coordinate lines
+- Add fromated PDB coordinates of aligned smallest ligand of your FEP series (with residue name "LIG") between the protein and the first POPC lipid atom, and add "GAP" string-containing lines before and after the ligand coordinate lines. It is convenient to have the smallest compound of the MD/FEP series as you will have all needed waters already there and will only need to remove clashing ones when growing / adding moieties.
 
 - Remove clashing waters from it (i.e. with oxygens within 2 Angstroms of ligands' non-hydrogen atoms). You can use the enclosed script as follows:
 
