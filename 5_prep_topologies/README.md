@@ -12,7 +12,7 @@ Here, we will make a topology for the MD/FEP transformation of our ligand A both
 
 - Also copy the associated rec.pdb you created at that stage (with cleaned up formated coordinates of the ligand from section 3).
 
-- Copy the enclosed qprep_wat.in file and adjust the solvate and boundary lines by changing the "N9" atom name by the one of your ligand you choose as sphere center. In these two lines, also change the "21" to the sphere radius you have chosen when setting up your sphere in section 2.
+- Copy the enclosed qprep_wat.in file and adjust the solvate and boundary lines by changing the "N9" atom name by the one of your ligand you choose as sphere center. In these two lines, also change the "21" to the sphere radius you have chosen when setting up your sphere in section 2 of the repository.
 
 - Inside the Forcefield/ folder, make sure the charge group section in the LIG.lib file starts with a heavy atom. 
 
@@ -20,4 +20,4 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 
 - Generate a topology with Qprep. The syntax is as follows:
 
-```qprep5 < qprep_wat.in > qprep.out```
+```Q_INSTALLATION_PATH/bin/qprep5 < qprep_wat.in > qprep.out``` # Install Q5 from the enclosed script if needed.
