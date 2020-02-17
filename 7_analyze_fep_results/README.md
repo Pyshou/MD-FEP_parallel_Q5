@@ -47,12 +47,24 @@ After adjusting the path to your Qprep excecutable at the beggining of the follo
 
 ## **4. Add intermediate steps**
 
-Inside the main FEP folder, just run:
+If the forward-reverse hysteresis is too high for a given transfromation step (see option 1 for analyzing the data), you can easily add additional intemediate steps where there is a large gap in free energy difference from analysis using Zwanzig's equation. Go to the corresponding md_step*/ folder and run:
 
-```bash ./cleanup.sh``` # This will delete files that are not needed anymore, as well as 
+```python ./FEP_converger_v2_multireplica.py``` # This will suggest lambda values in a text file.
+
+- Use a loop, something like that to prepare submission folders:
+
+```i=0; for fold in $(ls -d md_rs*/); do mkdir $fold/New_lambdas; cp -r md_rs1/input_files $fold/New_lambdas/; rm $fold/New_lambdas/input_files/dc*.inp; cp lambdas.txt $fold/New_lambdas/input_files/; cd $fold/New_lambdas/input_files/; PATH_TO_SCRIPTS/make_fep_files_parallell.py -i FEP.in; cd ..; i=$(echo $i+1|bc); $PATH_TO_SCRIPTS/parallel_FEP2_beskow.csh $i911; cd ../..; done``` # Just adapt this. $i911 is for generating seed number for having different initial velocities for different replica.
+
+- Now make a submission script to run qdyn sequentially on the eq*.inp and dc*.inp files inside the md_rs*/New_lambdas/dc*/ folders.
+
+- When complete, go to each md_rs*/ folder and run (eventually backup the data somewhere else in case):
+
+```python2 ./DC_reordering.py``` # This will read lambda values inside dc*.inp files to re-order dc*/ folders. Make sure you have them (lost for intermediate states if you have used the next section to cleanup the FEP folder so restore from the input_files/ folder)
+
+- Now, you can re-run the data analysis as before.
 
 ## **5. Cleaning up FEP folder**
 
 This is for when you're sure you're done with the data for your FEP and want to free as much space as possible. Inside the main FEP folder, just run:
 
-```bash ./cleanup.sh``` # This will delete files that are not needed anymore and zip energy files, production log files.
+```bash ./cleanup.sh``` # This will delete files that are not needed anymore and zip energy files as well as production log files
