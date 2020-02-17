@@ -73,9 +73,11 @@ After adjusting the path to your Qprep excecutable at the beggining of the follo
 ```bash ./extract_dc_last_frame.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # X being the intermediate state number (likely 1 for step0 and 41 for last step to check end states / respective compounds) and the second argument being a path to the folder where you built the corresponding topology for the transformed compound A (should contain a "Forcefield/" folder).
 
 - For extracting average coordinates from an MD trajectory (expect weird structures for flexible parts but good to check what remains very stable or doesn't really move):
+
 ```bash ./extract_dc_average.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # Same syntax.
 
  - For the last snapshot of the last equilibration step:
+
 ```bash ./extract_eq_last_frame.sh dcX PATH_TO_TOPOLOGY_FOLDER/``` # Same syntax.
 
 ## **5. Add intermediate steps**
