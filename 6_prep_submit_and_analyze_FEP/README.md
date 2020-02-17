@@ -1,4 +1,4 @@
-# Preparing FEP folders and submitting the jobs 
+# Preparing FEP folders, submitting the jobs and analyzing the results
 
 ## **1. Preparing FEP submission folder**
 
@@ -22,7 +22,7 @@ We will set up and submit an MD/FEP transformation where every intermediate stat
 
 - Now, inside each */md_step*/input_files/ folder, generate a production file for each intermediate state (typically 11 for electrosatics and turning on softcore potential (step0 and step1_1), 21 for anihilations (step1_2) and 41 for the last step. For that, edit a template FEP.in file listing the lambda values from 1 to 0 (see enclosed). You can also use the following script to generate the numbers accoridng to the desired number of intermediate states:
 
-```python3 ./lambda_generator.py 1 0 0.1 | wc -l``` # This generates such a FEP.in file and the pipe also print the corresponding number of states where first argument is lambda value of state A (1.0), second lambda of state B (0.0) and third is the increment between lambda values for generating intermediate states (adapt this!).
+```python3 ./lambda_generator.py 1 0 0.1 | wc -l``` # You will need numpy to be installed. This generates such a FEP.in file and the pipe also print the corresponding number of states where first argument is lambda value of state A (1.0), second lambda of state B (0.0) and third is the increment between lambda values for generating intermediate states (adapt this!).
 
 - Then, generate those production files out of the dc0 template using:
 
@@ -30,3 +30,22 @@ We will set up and submit an MD/FEP transformation where every intermediate stat
 
 ## **2. Submitting jobs**
 
+Outside the FEP folder, run the enclosed **master_script_beskow.sh** script that you can adjust (path to called scripts at the beginning, folders to go to and more lines if running more than 3 replica per lambda window / intermediate state), as well as the enclosed scripts it calls (some lines in **make_submission_file_beskow.sh** might need to be changed if you are not running those on Beskow implying a different configuration of nodes and if using another allocation project ID than "2019-2-16")
+
+## **3. Checking data integrity after job completion **
+
+You can use a bash loop like that:
+
+```for fold in $(ls -d A_to_B/*/md_step*/md_rs*/dc*/); do nb=$(tail $fold/dc*log | grep "terminated normally" | wc -l); if [ $nb -eq 0 ]; then echo $fold" is not finished!"; fi; done```
+
+## **4. Analyzing results **
+
+Inside each REC/ and WAT/ folder, run the enclosed **analyse_energies.py** script after adjusting the paths to the Qfep executable and the input_files/ folder (see enclosed). This folder requires a qfepX.in file for each main transformation step, loading the corresponding energy files sequentially (which means you should have a qfep11.in file there when having 11 lambda windows, i.e. as default in step0), Also, the first column of the third row should corresponding to RT in kcal/mol according to the target temperature in your simulations (here 300K). This scripts normally considers up to 9 replica (the CSV output will have several time the same replica-wise value when using less so ignore the duplicated values). the deltadeltaG results will be the average in the receptor minus in water and you can also look for the forward-reverse hysteresis error (forward-reverse) and see from the full_data.csv output if there are unconverged steps (if so, look at the next section to add intermediate steps). And ultimately, use an SEM between replica data as main error (you might want to add replica later if needed).
+
+Alternatively, you can reserve a computing node for several hours to run **analyse_energies_scamble.py** which instead instead of assuming only 3 combinations of window-wise replica point, will scramble the choice of replica for each window 1000 times and return an average and standard deviation. After running it in the REC/ and WAT/ folders, go one folder behind and run **analyse_scambled_data.py** to get the summed up results (average dG in receptor minus dG in water with standard deviation for 1000 agains 1000 points (10^6), using the other output from previous script).
+
+**Extracting MD snapshots**
+
+## **5. Add intermediate steps**
+
+## **6. Cleaning up FEP folder**
