@@ -121,3 +121,17 @@ Ideally, use a fragment "tool" compound representing your molecular scaffold wit
 - In the last block, identify the line starting with "D1" (torsion 1), check the starting angle value and at the end of the line, add "  S 18 10.0", for instance if rotating 18 times by 10 degrees (symmetric molecule, I would advise a full rotation to double check symmetry in the scan though). Also leave two blank lines at the end of the file.
 
 - Then use the enclosed submission script on Tetralith.
+
+- When done, you can open the output (LIG.out file) with gview, check structures and save the scan data. Also save each structure (see below).
+
+- Converts the energies from Hartree to kcal/mol and offset by the minimum (will become zero). 
+
+- Generate a Q topology for each saved structure in vaccuum (don't use solvate with qprep!). 
+
+- Run a short, close to 0 K simulation in Q for each point with atoms tightly restrained to their initial coordinates. 
+
+- Get the total potential from the generated Q log files for each and offset by the minimum (will become zero). 
+
+- Then compare the profiles and define new torsional terms to fit the QM scan if needed (you can use regression tools in R or so if things are not obvious).
+
+- Then re-use those parameters within your Forcefield/Qoplsaa.prm file to generate "corrected" topologies. And re-run an MM scan to double-check that the new relative potential energies match the QM ones now.
