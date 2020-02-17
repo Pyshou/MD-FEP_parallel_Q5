@@ -20,4 +20,8 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 
 - Generate a topology with Qprep. The syntax is as follows:
 
-```Q_INSTALLATION_PATH/bin/qprep5 < qprep_wat.in > qprep.out``` # Install Q5 from the enclosed script if needed.
+```$QPATH/bin/qprep5 < qprep_wat.in > qprep.out``` # $QPATH=where you installed Q.. . Install Q5 from the enclosed script if needed.
+
+- Check the qprep.out file and that you have no warning about fraction charge groups if you have defined several (if doing amino acid FEPs)!
+
+- Open the topology (topology.top file) and find the line containing the "solvent radii" definition. Change the second column by your sphere radius (first column) minus 0.5 Angstroms.
