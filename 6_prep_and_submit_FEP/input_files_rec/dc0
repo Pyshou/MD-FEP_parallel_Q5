@@ -1,0 +1,25 @@
+[MD]
+steps               250000
+stepsize                  1.0
+temperature             300.0
+bath_coupling           100
+shake_solvent            on
+shake_solute            off
+lrf                      on
+separate_scaling         on
+
+[sphere]
+shell_radius             18
+shell_force              10  
+
+[cut-offs]
+
+[intervals]
+non_bond                 25
+output                   50
+energy                   50
+trajectory            30000
+
+[files]
+topology       topology.top
+fep            lig.fep

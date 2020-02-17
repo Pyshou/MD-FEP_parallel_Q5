@@ -1,0 +1,32 @@
+[MD]
+steps                 50000
+stepsize                  1.0
+temperature              50.0
+initial_temperature      50.0
+random_seed             slumptal
+bath_coupling             5
+shake_solvent            on
+shake_solute            off
+lrf                      on
+separate_scaling        on
+
+[sphere]
+shell_radius             18
+shell_force              10
+
+[cut-offs]
+
+[intervals]
+non_bond                 25
+output                   50
+energy                    0
+trajectory                0
+
+[files]
+topology       topology.top
+final          eq1.re
+restart        eq0.re 
+fep            lig.fep
+
+[sequence_restraints]
+1 4926 5.0 0
