@@ -31,4 +31,8 @@ Note: If you are doing amino acid FEPs, you should define neutral (or neat) char
 
 - Make another folder rather called i.e. top_X_rec (X=name of your compound A).
 
-- Do the same as before but instead, your rec.pdb is the 
+- Do the same as before (get the "Forcefield" folder of your ligand A) and instead, your rec.pdb is the receptor you prepared in section 2 of this repository.
+
+- Now, replace the ligand coordinates by those of your aligned compound A (rec.pdb prepared in section 3).
+
+- Remove clashing waters.
