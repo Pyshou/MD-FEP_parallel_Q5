@@ -1,6 +1,6 @@
-# MD-FEP
+# MD/FEP with parallel sampling of intermediate states in Q
 
-Relative Binding Free Energy Calculations with the OPLS-AA Force Field. Check each sub-folder depending on what you need to do (from step 1 for a new project). This is originally intended to be a "thread" shared within the Carlssonlab but I appreciate sharing this with anyone curious about how we set up and run MD/FEP simulations. So this is likely not a "clean" repository at all the way you might expect (also getting started uploading my stuff).
+Relative Binding Free Energy Calculations with the OPLS-AA Force Field and a new version for the protein. Check each sub-folder depending on what you need to do (from step 1 for a new project). This is originally intended to be a "thread" shared within the Carlssonlab but I appreciate sharing this with anyone curious about how we set up and run MD/FEP simulations. So this is likely not a "clean" repository at all the way you might expect (also getting started uploading my stuff).
 
 This is the way I do things and of course there are always alternatives. An advantage we have over the mainstream way of running MD/FEP simulations is that we sample all intermediate states of a given transfromation in parallel, which reduces the potential trapping into low energy regions of intermediate states leading to wrong sampling of the last state (compound) and then likely gives convergence with a much smaller number of replica. This also gives us results fast, allows us to extend production runs for different windows and also to just add extra intermediate states when needed to converge the results
 
