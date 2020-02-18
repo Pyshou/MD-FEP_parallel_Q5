@@ -1,10 +1,10 @@
 # Get OPLS ligand force field parameters
 
-For each FEP, you will need the force field parameters of both the MD topology's ligand (usually the biggest) and of the one to compare it to. Prepare a force field folder for each compound of an MD/FEP transformation (called like ff.lig.YOURLIGNAME, convenient for scripts in next steps) and do the following. You can preliminarily build and save a MOL2 file for your ligands using Chimera's Structure Editing Builder Tool ideally starting from a template structure (very convenient). Name the ligand residue "LIG" everywhere for compatibility with different scripts later.
+For each FEP, you will need the force field parameters of both the MD topology's ligand (usually the biggest) and of the one to compare it to. Prepare a force field folder for each compound of an MD/FEP transformation (called like ff.lig.YOURLIGNAME, convenient for scripts in next steps) and do the following. 
 
-PS. I would advice to run a few relevant retrospective predictions with already tested compounds to calibrate your MD/FEP protocol first (i.e. protonation states in the binding site, sphere size, simulation time..) and see if it allows to reproduce experimental binding affinities.
+- You can preliminarily build and save a MOL2 file for your ligands using Chimera's Structure Editing Builder Tool ideally starting from a template structure (very convenient). Run a minimization if you had to build any cycle. And double check atom and bond types in your MOL2 file (check last two pages and page 13 of http://chemyang.ccnu.edu.cn/ccb/server/AIMMS/mol2.pdf respectively..). Name the ligand residue "LIG" everywhere for compatibility with different scripts later.
 
-Use one of the following options and always the same for the same project (as you will see later, seperate scripts that map forcefield parameters of two liands have been made as the markers/comments in force field files differ and are needed)! Note that the force field parameters are the same if you are using ffld_server with the default version (14) as here.
+- Use one of the following options and always the same for the same project (as you will see later, seperate scripts that map forcefield parameters of two liands have been made as the markers/comments in force field files differ and are needed)! Note that the force field parameters are the same if you are using ffld_server with the default version (14) as here.
 
 
 ## **Option 1. Using ffld_server (accessible on CSB)**
