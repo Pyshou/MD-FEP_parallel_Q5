@@ -1,6 +1,6 @@
 # Preparation of a spherical system for MD/FEP simulations in Q
 
-Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer as input (see section 1). All this could be further automated but I like paying attention to each of these steps and they don't take long when you are used to that (also very important as your MD/FEP calculations will inherit from your system preparation).
+Here, we will take a pre-equilibrated snapshot of your system in lipid bilayer as input (see section 1). We will prepare it for MD simulations in Q using spherical boundary conditions. All this could be further automated but I like paying attention to each of these steps and they don't take long when you are used to that (also very important as your MD/FEP calculations will inherit from your system preparation).
 
 **Cleanup and format structure for Q**
 
