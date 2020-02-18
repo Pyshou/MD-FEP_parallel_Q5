@@ -1,3 +1,4 @@
+# Alternatively, go to https://github.com/esguerra/q6 (this is another more recent, stable version)
 mkdir qsource_test_13018
 cd qsource_test_13018
 git clone https://github.com/qusers/qsource.git --branch testing/akesandgren --single-branch qakesandgren
