@@ -24,8 +24,6 @@ Note: If have used ffld_server to generate parameters in section 3 and you are d
 
 - Check the qprep.out file and that you have no warning about fraction charge groups if you have defined several (if doing amino acid FEPs)!
 
-- Open the topology (topology.top file) and find the line containing the "solvent radii" definition. Change the second column by your sphere radius (first column) minus 0.5 Angstroms.
-
 
 ## **2. Ligand in the receptor**
 
@@ -53,4 +51,4 @@ Note: If you are doing amino acid FEPs and had to change charge groups above, us
 
 ```$QPATH/bin/qprep5 < qprep_rec.in > qprep.out``` # $QPATH=where you installed Q..
 
-- Open the topology (topology.top file) and again, find the line containing the "solvent radii" definition. Change the second column by your sphere radius (first column) minus 0.5 Angstroms (the original value is wrong as it is estimated from the number of waters / solvent density in the system while POPC lipids are ignored).
+- Open the topology (topology.top file) and again, find the line containing the "solvent radii" definition. Change the second column by your sphere radius (first column) minus 0.5 Angstroms, corresponding to waters you kept when preparing your sphere in section 3 of the repository (the original value is wrong as it is estimated from the number of waters / solvent density in the system while POPC lipids are ignored).
