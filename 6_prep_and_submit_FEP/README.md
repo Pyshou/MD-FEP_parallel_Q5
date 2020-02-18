@@ -30,4 +30,6 @@ We will set up and submit an MD/FEP transformation where every intermediate stat
 
 ## **2. Submitting jobs**
 
-Outside the FEP folder, run the enclosed **master_script_beskow.sh** script that you can adjust (path to called scripts at the beginning, folders to go to and more lines if running more than 3 replica per lambda window / intermediate state), as well as the enclosed scripts it calls (some lines in **make_submission_file_beskow.sh** might need to be changed if you are not running those on Beskow implying a different configuration of nodes and if using another allocation project ID than "2019-2-16")
+Outside the FEP folder, run the enclosed **master_script_beskow.sh** script that you can adjust (path to called scripts at the beginning, folders to go to and more lines if running more than 3 replica per lambda window / intermediate state), as well as the enclosed scripts it calls. Some lines in **make_submission_file_beskow.sh** also need to be changed if you are not running those on Beskow implying a different configuration of nodes and if using another allocation project ID than "2019-2-16"
+
+This is massively parallelized as we sample each FEP state independently. Also, receptor-ligand simulations typically take one or two dozens of hours while those of ligands in water rather take a few to around a dozen of hours. Rather use the qdyn5p excecutable and adapt the number of cores per instance if you want to speed this up a little bit. Typically, 4 seems to be a compromise in my case (see enclosed plots)
