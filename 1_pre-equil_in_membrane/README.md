@@ -87,7 +87,7 @@ Choose OPLS-AA/M (2015, first option when oplsaam.ff/ folder detected here), TIP
 - In protein.itp, rename the object (i.e. "Protein_chain_A") in the [ moleculetype ] section to "protein" or at least to match the object name in topol.top
 - Remove the "#include "oplsaa.ff/forcefield.itp" line as it will be already loaded from the topol.top mother topology and Gromacs will complain about that.
 - At the end of the file, remove everything from "; Include Position restraint file" / after the improper section (same thing)
-- Now adjust the number of POPC lipids, solvent molecules and ions in the end of topol.top . For counting residues, you can for instance use the following for POPC lipids (same applies for "SOL" molecules, dividing by 3 and not 52 while for ions, the counting is straighforward):
+- Now adjust the number of POPC lipids, solvent molecules and ions in the end of topol.top. Also, load the water model you want to use (.itp file), if not SPC, at the beginning of the file. For counting residues, you can for instance use the following for POPC lipids (same applies for "SOL" molecules, dividing by 3 and not 52 while for ions, the counting is straighforward):
 
 ```nbPOPatm=$(grep POP system.pdb | wc -l); echo $nbPOPatm"/52"|bc``` # 52 atoms per Berger united atom POPC lipid
 
