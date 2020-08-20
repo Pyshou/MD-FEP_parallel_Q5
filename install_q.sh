@@ -10,7 +10,7 @@ cd src
 module load intel/17.0.4.196
 module load impi/5.1.3
 # Before compiling the MPI version, in the "GNU gcc-gfortran" section, change "FC_OPT=         -O3 -unroll" to "FC_OPT=         -Ofast -unroll"
-# This will avoid some weird crashes due to some bugs
+# This will avoid some weird crashes due to some bugs with some compilers
 make mpi COMP=ifort
 make all COMP=ifort
 # In the ff/oplsaam2015/ folder, make sure you have the correct parameters for arginine's C302 atom type
