@@ -287,7 +287,7 @@ def edit_step1_1(lig1_prm, softcore_on, atom_nb, charges_state2, atom_types2, li
 	for line in lig1_prm.readlines():
 		if "[atom_types]" in line: # Nnbon data
 			counter=1
-		elif '! NONBONDED LIG PARAMETERS' in line and counter==1: # End of nbon params read
+		elif (line=='\n' or line==' \n' or '! NONBONDED LIG PARAMETERS' in line) and counter==1: # End of nbon params read
 			break
 		elif counter==1 and line[0:2]!="*-" and line[0]!='!': # nbon params line
 			line_elements=re.findall('[0-9]+.[0-9]+', line)
