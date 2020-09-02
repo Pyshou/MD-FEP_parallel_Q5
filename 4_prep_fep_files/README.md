@@ -56,7 +56,8 @@ One script has been made for the case when you use LigParGen parameters but I wo
 
 There are also variants for amino acid transformations (where the thermodynamics cycle implies a transformation of the amino acid in both the apo and holo receptor to evaluate the effect of mutations on ligand binding). The procedure is similar but here are differences: 
 
-- Extract coordinates of the two amino acids to compare and superimpose them as much as you can to generate a mapping file as shown above. 
+- Extract coordinates of the two amino acids to compare and superimpose them as much as you can to generate a mapping file as shown above but using the 
+prep_mapping_files_amino_acids.py script. 
 
 - For the pre-generation of FEP files, you will need a .lib library for each amino acids (A and B) instead of a .prm file. To generate them, use the following:
 
